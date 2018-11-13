@@ -1,0 +1,58 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+{{ form.media }}
+
+
+<h1> Update your current location</h1>
+
+  <form action=""   method="post"  >
+    {% csrf_token %}
+<table>
+    {{ form.as_table }}
+</table>
+    <input type="submit" value="Save">
+  </form>
+
+    <form role="form" action="/" method="post">{% csrf_token %}
+        <div class="form-group">
+            <label for="latitude">Latitude:</label>
+            <input id="id_latitude" name="latitude" type="text" class="form-control"></input>
+        </div>
+        <div class="form-group">
+            <label for="longitude">Longitude:</label>
+            <input id="id_longitude" name="longitude" type="text" class="form-control"></input>
+        </div>
+        <!--<input  type="submit" value="Submit" />-->
+    </form>
+
+
+<!--Simple script to get the current lat/lon and put into the id_latitude and id_longitude elements.-->
+    <script language="javascript" type="text/javascript">
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var lat = document.getElementById('id_latitude');
+            var lon = document.getElementById('id_longitude');
+            lat.value = position.coords.latitude;
+            lon.value = position.coords.longitude;
+        });
+    </script>
+
+
+<img  height ="450" width="600" alt="no map available"
+      src="https://maps.googleapis.com/maps/api/staticmap?size=600x450&center=39.635192,-84.180531&zoom=12&key=AIzaSyAQO7k33zn4Qo82imN30IrXuw35dXnc1U4"
+</img>
+
+
+<h1> Songs for this Location</h1>
+{% if tune_list %}
+        <ul>
+        {% for tune in tune_list %}
+            <li> <a href="{{tune.get_absolute_url }}">  Play: </a> {{ tune }} </li>
+        {% endfor %}
+{% else %}
+            None.
+{% endif %}
+</body>
+{% endblock content %}
+

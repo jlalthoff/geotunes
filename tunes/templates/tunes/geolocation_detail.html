@@ -1,0 +1,34 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<head>
+{{ form.media }}
+</head>
+
+<h1>Location</h1>
+
+<p>{{geolocation}}</p>
+
+  <form action=""   method="post"  >
+    {% csrf_token %}
+
+{{form.as_p}}
+
+    <input type="submit" value="Save">
+  </form>
+
+
+<p>Associated with these songs:
+{% if tune_list %}
+<ul>
+    {% for x in tune_list %}
+<li>{{x}}
+    <a href="{% url 'tune_detail'  x.pk %}" > Play </a> </li>
+    {% endfor %}
+{% else %}
+   <p>None.</p>
+</ul>
+{% endif %}
+<hr>
+
+{% endblock content %}

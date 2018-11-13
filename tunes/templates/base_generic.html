@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    {% block title %}<title>Jerome's Geographical Music Player</title>{% endblock %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Add additional CSS in static file -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+
+    <link rel="stylesheet" href="https://openlayers.org/en/v5.2.0/css/ol.css" type="text/css">
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+
+</head>
+
+
+<body>
+
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-2">
+
+{% block sidebar %}
+            <ul class="sidebar-nav">
+
+                <li><a href="{% url 'index' %}">Home</a></li>
+
+                {% if user.is_authenticated %}
+                    <li> User: {{user.get_username }} </li>
+                    <li> <a href="{% url 'update_user' user.id %}" >Update User</a></li>
+                    <li> <a href="{% url 'change_password' %}" >Change My Password</a></li>
+                    <li> <a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+                    <hr>
+                    <li> <a href="{% url 'geouser_update' user.id %}">Set My Location</a></li>
+                    <li> <a href="{% url 'playlist_create' %}">New Playlist</a></li>
+                    <li> <a href="{% url 'tune_create' %}">Upload Music</a></li>
+                    <li> <a href="{% url 'geolocation_create' %}">Add Location</a></li>
+                    <li> <a href="{% url 'location_search' %}">Locations</a></</li>
+                    <hr>
+                    <li> <a href="{% url 'playlists' %}">My Playlists</a> </li>
+                    <li> <a href="{% url 'tunes'  %}">My Tunes</a></li>
+                    <li> <a href="{% url 'my_location_list' %}">My Locations</a></li>
+                {% else %}
+                    <li><a href="{% url 'register' %}">Create New User</a></li>
+                    <li><a href="{% url 'login' %}?next={% url 'index' %}">Login</a> </li>
+                {% endif %}
+
+            </ul>
+{% endblock %}
+        </div>
+        <div class="col-sm-10 ">
+
+
+{% block content %}{% endblock %}
+
+{% block pagination %}
+        {% if is_paginated %}
+            <div class="pagination">
+            <span class="page-links">
+            {% if page_obj.has_previous %}
+                    <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous </a>
+            {% endif %}
+            <span class="page-current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </span>
+            {% if page_obj.has_next %}
+                <a href="{{ request.path }}?page={{ page_obj.next_page_number }}"> next</a>
+            {% endif %}
+            </span>
+            </div>
+        {% endif %}
+{% endblock %}
+
+
+
+
+
+</html>

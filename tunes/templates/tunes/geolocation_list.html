@@ -1,0 +1,16 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<h1> Locations</h1>
+<a href="{% url 'location_search' %}" > Revise your search parameters</a>
+
+{%if location_list %}
+<hr>
+<ul>
+  {% for geolocation in location_list %}
+    <li> <a href="{{geolocation.get_absolute_url}}">{{geolocation}}</a> </li>
+  {% endfor %}
+</ul>
+{%endif%}
+
+{% endblock %}

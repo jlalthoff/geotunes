@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Playlists</h1>
+{% if playlist_list %}
+    <p>Choose one to start playing.</p>
+    <ul>
+    {% for playlist in playlist_list %}
+    <li>
+        <a href="{{playlist.get_absolute_url }}"> {{playlist.name }} </a> created on {{ playlist.date_created }}
+        <a href="{% url 'playlist_update' playlist.pk %}" >update</a>
+        <a href="{% url 'playlist_delete' playlist.pk %}" >delete</a>
+    </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No playlists have been created. </p>
+
+{% endif %}
+
+{% endblock %}

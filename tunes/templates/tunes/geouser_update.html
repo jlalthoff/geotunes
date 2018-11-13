@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1> Pick your current location</h1>
+  <form action=""  method="post">
+    {% csrf_token %}
+    <table>
+    {{ geouser_form.as_p }}
+    </table>
+    <p>
+    <input type="submit" value="Save">
+    </p>
+  </form>
+<div id="point_map">
+</div>
+{% endblock %}

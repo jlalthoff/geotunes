@@ -1,0 +1,13 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<h1>Location search</h1>
+<p> Search for locations using the name or US state:</p>
+  <form method="GET">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+
+
+{% endblock %}

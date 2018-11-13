@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Delete Associated Location</h1>
+
+<p>Are you sure you want to remove the location: </p>
+<p>{{ usertunelocation.location }} from  {{usertunelocation.tune.title}} ?</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Yes, remove.">
+</form>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h4>
+<p>Playlist Name: {{ playlist.name }} </p>
+</h4>
+<p>created {{ playlist.date_created }} </p>
+
+Songs
+</h4>
+
+<ol>
+{% for song in playlist.tunes.all  %}
+    <li><a href="{% url 'tune_detail' song.pk %}"> {{ song.title }}</a> by {{song.author }}</li>
+
+{% endfor %}
+</ol>
+
+  <form action="{% url 'playlist_play' playlist.pk %}"  method="GET">
+    {% csrf_token %}
+    <p> Start playing this playlist
+
+    <input type="submit" value="Play">
+    </p>
+  </form>
+
+  <form action="{% url 'playlist_delete' playlist.pk %}"  method="GET">
+    {% csrf_token %}
+
+
+    <p> Delete this playlist, tunes will remain.
+
+    <input type="submit" value="Delete">
+      </p>
+  </form>
+{% endblock %}

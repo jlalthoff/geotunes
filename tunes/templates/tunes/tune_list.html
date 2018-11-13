@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Tunes</h1>
+{% if tune_list %}
+    <p>Choose one to play and link to a geographical area.</p>
+    <ul>
+    {% for tune in tune_list %}
+    <li>
+        <a href="{{tune.get_absolute_url }}"> {{tune.title }}</a> By {{ tune.author }}
+    </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p> No music has been uploaded. </p>
+{% endif %}
+
+{% endblock %}

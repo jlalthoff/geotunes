@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h4>
+<p>Playlist Name: {{ playlist.name }} </p>
+</h4>
+<p>created {{ playlist.date_created }} </p>
+
+Songs
+</h4>
+
+<ol>
+{% for tune in playlist.tunes.all  %}
+    <li><audio controls>
+        <source src="{{tune.tune_content.url}}" type="audio/mpeg">
+        Sorry, your (old?) browser does not support playing audio :-)
+        </audio>
+        <p>{{ tune.title }} by {{tune.author }}</p>
+    </li>
+
+{% endfor %}
+</ol>
+
+
+{% endblock %}
