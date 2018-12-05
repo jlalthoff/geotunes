@@ -7,7 +7,7 @@
     <ul>
     {% for tune in tune_list %}
     <li>
-        <a href="{{tune.get_absolute_url }}"> {{tune.title }}</a> By {{ tune.author }}
+        <a href="{{tune.get_absolute_url }}"> {{tune.title }}</a> By {{ tune.artist }}
     </li>
     {% endfor %}
     </ul>

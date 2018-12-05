@@ -48,9 +48,11 @@
                     <hr>
                     <li> <a href="{% url 'geouser_update' user.id %}">Set My Location</a></li>
                     <li> <a href="{% url 'playlist_create' %}">New Playlist</a></li>
-                    <li> <a href="{% url 'tune_create' %}">Upload Music</a></li>
+                    <!--<li> <a href="{% url 'tune_create' %}">Upload Music</a></li>-->
+                <li> <a href="{% url 'library_create' %}" >Register Music Library</a></li>
+
                     <li> <a href="{% url 'geolocation_create' %}">Add Location</a></li>
-                    <li> <a href="{% url 'location_search' %}">Locations</a></</li>
+                    <li> <a href="{% url 'location_search' %}">Locations</a></li>
                     <hr>
                     <li> <a href="{% url 'playlists' %}">My Playlists</a> </li>
                     <li> <a href="{% url 'tunes'  %}">My Tunes</a></li>
@@ -85,9 +87,6 @@
             </div>
         {% endif %}
 {% endblock %}
-
-
-
-
-
-</html>
+        </div>
+</div>
+</div>

@@ -5,7 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f49e2487-cf67-4316-a144-a0c0c5f7bc11" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/tunes/Library.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tunes/Playlist.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tunes/Song.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tunes/load_ituneslib.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tunes/templates/tunes/musiclibrary_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tunes/templates/tunes/musiclibrary_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tunes/templates/tunes/musiclibraryplaylist_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tunes/templates/tunes/playlist_load.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GEO/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/GEO/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/migrations/0002_auto_20181027_1057.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/migrations/0003_geolocation_owner.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/migrations/0004_auto_20181107_1049.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/migrations/0005_state.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/migrations/0006_auto_20181107_1407.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/migrations/0007_auto_20181108_1312.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/templates/base_generic.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/base_generic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/templates/tunes/geolocation_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/tunes/geolocation_form_old.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/templates/tunes/geolocation_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/tunes/geolocation_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/templates/tunes/geouser_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/tunes/geouser_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/templates/tunes/playlist_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/tunes/playlist_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/templates/tunes/playlist_play.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/tunes/playlist_play.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/templates/tunes/song_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/tunes/song_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/templates/tunes/tune_confirm_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/tunes/tune_confirm_delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/templates/tunes/tune_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/tunes/tune_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,49 +48,58 @@
     <session id="-1745036681">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.24" value="1" />
+          <entry key="project.open.time.39" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="INSTALLER" value="1" />
+          <entry key="METADATA" value="1" />
+          <entry key="RECORD" value="2" />
+          <entry key="WHEEL" value="1" />
           <entry key="css" value="4" />
           <entry key="env" value="1" />
           <entry key="gitignore" value="1" />
-          <entry key="html" value="224" />
+          <entry key="html" value="253" />
+          <entry key="md" value="1" />
           <entry key="po" value="1" />
-          <entry key="py" value="150" />
+          <entry key="py" value="211" />
+          <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="4" />
-          <entry key="HTML" value="224" />
-          <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="150" />
+          <entry key="HTML" value="253" />
+          <entry key="Markdown" value="1" />
+          <entry key="PLAIN_TEXT" value="12" />
+          <entry key="Python" value="211" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="446" />
+          <entry key="Python Console" value="654" />
           <entry key="css" value="5" />
           <entry key="env" value="55" />
-          <entry key="html" value="9359" />
-          <entry key="py" value="30713" />
+          <entry key="html" value="11431" />
+          <entry key="py" value="39189" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="5" />
-          <entry key="HTML" value="9359" />
+          <entry key="HTML" value="11431" />
           <entry key="PLAIN_TEXT" value="55" />
-          <entry key="Python" value="31159" />
+          <entry key="Python" value="39843" />
         </counts>
       </usages-collector>
     </session>
@@ -67,26 +107,45 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tunes/views.py">
+        <entry file="file://$PROJECT_DIR$/tunes/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="126" column="51" lean-forward="true" selection-start-line="126" selection-start-column="51" selection-end-line="126" selection-end-column="51" />
+            <state relative-caret-position="319">
+              <caret line="141" column="27" lean-forward="true" selection-start-line="141" selection-start-column="27" selection-end-line="141" selection-end-column="27" />
               <folding>
-                <element signature="e#0#35#0" expanded="true" />
-                <marker date="1542052253768" expanded="true" signature="1010:7285" ph="..." />
-                <marker date="1542052253768" expanded="true" signature="4199:4204" ph="..." />
-                <marker date="1542052253768" expanded="true" signature="4496:5063" ph="..." />
-                <marker date="1542052253768" expanded="true" signature="4843:5063" ph="..." />
+                <element signature="e#0#43#0" expanded="true" />
+                <marker date="1544025245361" expanded="true" signature="1056:1094" ph="..." />
+                <marker date="1544025245361" expanded="true" signature="1955:2780" ph="..." />
+                <marker date="1544025245361" expanded="true" signature="2539:2780" ph="..." />
+                <marker date="1544025245361" expanded="true" signature="4411:4689" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/geolocation_detail.html">
+        <entry file="file://$PROJECT_DIR$/tunes/Song.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="592">
+              <caret line="64" column="19" lean-forward="true" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tunes/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-469">
+              <caret line="335" lean-forward="true" selection-start-line="335" selection-end-line="335" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+                <marker date="1544023101272" expanded="true" signature="1129:8230" ph="..." />
+                <marker date="1544023101272" expanded="true" signature="4354:4359" ph="..." />
+                <marker date="1544023101272" expanded="true" signature="4651:5218" ph="..." />
+                <marker date="1544023101272" expanded="true" signature="7122:7123" ph="..." />
+                <marker date="1544023101272" expanded="true" signature="13157:13162" ph="..." />
+                <marker date="1544023101272" expanded="true" signature="13754:13759" ph="..." />
+                <marker date="1544023101272" expanded="true" signature="13878:13883" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,70 +153,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tunes/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="37" column="16" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+            <state relative-caret-position="334">
+              <caret line="25" column="43" lean-forward="true" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
               <folding>
-                <element signature="e#0#54#0" expanded="true" />
+                <element signature="e#0#24#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GEO/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="67" column="12" lean-forward="true" selection-start-line="67" selection-start-column="12" selection-end-line="67" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/geouser_form.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tunes/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1605">
-              <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-                <marker date="1541702000910" expanded="true" signature="1056:1094" ph="..." />
-                <marker date="1541702000910" expanded="true" signature="3574:3852" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/geouser_update.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GEO/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.env">
+        <entry file="file://$PROJECT_DIR$/tunes/migrations/0001_initial.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="120">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tunes/load_ituneslib.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="14" selection-start-line="14" selection-end-line="14" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -174,25 +192,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>success_url</find>
-      <find>get_absolute_url</find>
-      <find>redirect`</find>
-      <find>tune_delete</find>
-      <find>save</find>
-      <find>register</find>
-      <find>django.contrib.messa</find>
-      <find>staticf</find>
-      <find>stat</find>
-      <find>root_url</find>
-      <find>delete_user</find>
-      <find>3857</find>
-      <find>eouser_form</find>
-      <find>{{</find>
-      <find>LOCATION_TYPE</find>
       <find>geolocationf</find>
       <find>urls.</find>
       <find>location_list</find>
-      <find>pass</find>
       <find>updateview</find>
       <find>tune</find>
       <find>Update your curren</find>
@@ -204,6 +206,22 @@
       <find>allow</find>
       <find>sqlite</find>
       <find>secret_ke</find>
+      <find>DATABASES</find>
+      <find>g</find>
+      <find>location</find>
+      <find>musicPathXML</find>
+      <find>itunesXML</find>
+      <find>il</find>
+      <find>itunesxml</find>
+      <find>pass</find>
+      <find>author</find>
+      <find>load_playlist</find>
+      <find>tune_create</find>
+      <find>unique</find>
+      <find>User</find>
+      <find>Geouseru</find>
+      <find>Geouser</find>
+      <find>state</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -212,60 +230,65 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/tunes/templates/tunes/geouser_from.html" />
-        <option value="$PROJECT_DIR$/GEO/urls.py" />
-        <option value="$PROJECT_DIR$/tunes/templates/tunes/tune_confirm_delete.html" />
-        <option value="$PROJECT_DIR$/tunes/templates/tunes/geouser_update.html" />
-        <option value="$PROJECT_DIR$/tunes/static/css/styles.css" />
-        <option value="$PROJECT_DIR$/tunes/templates/index.html" />
-        <option value="$PROJECT_DIR$/tunes/templates/tunes/playlist_confirm_delete.html" />
-        <option value="$PROJECT_DIR$/tunes/templates/tunes/usertunelocation_form.html" />
-        <option value="$PROJECT_DIR$/tunes/templates/tunes/filters.py" />
-        <option value="$PROJECT_DIR$/tunes/templates/tunes/usertunelocation_list.html" />
-        <option value="$PROJECT_DIR$/tunes/filters.py" />
-        <option value="$PROJECT_DIR$/tunes/admin.py" />
-        <option value="$PROJECT_DIR$/tunes/templates/tunes/usertunelocation_confirm_delete.html" />
-        <option value="$PROJECT_DIR$/tunes/templates/tunes/tune_detail.html" />
-        <option value="$PROJECT_DIR$/tunes/templates/register.html" />
-        <option value="$PROJECT_DIR$/tunes/templates/tunes/register_update.html" />
-        <option value="$PROJECT_DIR$/templates/registration/password_reset_form.html" />
-        <option value="$PROJECT_DIR$/templates/registration/login.html" />
-        <option value="$PROJECT_DIR$/tunes/templates/tunes/playlist_detail.html" />
         <option value="$PROJECT_DIR$/tunes/templates/tunes/playlist_play.html" />
         <option value="$PROJECT_DIR$/tunes/templates/tunes/geolocation_form.html" />
         <option value="$PROJECT_DIR$/tunes/templates/tunes/register.html" />
-        <option value="$PROJECT_DIR$/tunes/templates/base_generic.html" />
         <option value="$PROJECT_DIR$/tunes/templates/tunes/user_form.html" />
         <option value="$PROJECT_DIR$/tunes/templates/tunes/change_password.html" />
         <option value="$PROJECT_DIR$/tunes/templates/tunes/playlist_form.html" />
         <option value="$PROJECT_DIR$/tunes/templates/tunes/tune_form.html" />
         <option value="$PROJECT_DIR$/tunes/templates/tunes/geolocation_search.html" />
         <option value="$PROJECT_DIR$/tunes/templates/tunes/playlist_list.html" />
-        <option value="$PROJECT_DIR$/tunes/templates/tunes/tune_list.html" />
-        <option value="$PROJECT_DIR$/tunes/templates/tunes/geolocation_list.html" />
-        <option value="$PROJECT_DIR$/tunes/templates/tunes/song_detail.html" />
         <option value="$PROJECT_DIR$/tunes/download_geo_data.py" />
         <option value="$PROJECT_DIR$/tunes/migrations/0004_auto_20181107_1049.py" />
         <option value="$PROJECT_DIR$/tunes/migrations/0006_auto_20181107_1407.py" />
         <option value="$PROJECT_DIR$/tunes/migrations/0007_auto_20181108_1312.py" />
-        <option value="$PROJECT_DIR$/tunes/models.py" />
         <option value="$PROJECT_DIR$/tunes/templates/tunes/geolocation_create.html" />
-        <option value="$PROJECT_DIR$/tunes/urls.py" />
         <option value="$PROJECT_DIR$/tunes/templates/tunes/geolocation_detail2.html" />
-        <option value="$PROJECT_DIR$/tunes/templates/tunes/geolocation_detail.html" />
-        <option value="$PROJECT_DIR$/tunes/templates/tunes/geouser_form.html" />
-        <option value="$PROJECT_DIR$/tunes/views.py" />
-        <option value="$PROJECT_DIR$/tunes/forms.py" />
         <option value="$PROJECT_DIR$/GEO/.gitignore" />
-        <option value="$PROJECT_DIR$/GEO/settings.py" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/tunes/templates/tunes/geouser_form.html" />
+        <option value="$PROJECT_DIR$/tunes/templates/tunes/geolocation_list.html" />
+        <option value="$PROJECT_DIR$/tunes/templates/tunes/geolocation_detail.html" />
+        <option value="$PROJECT_DIR$/tunes/Library.py" />
+        <option value="$PROJECT_DIR$/tunes/Song.py" />
+        <option value="$PROJECT_DIR$/tunes/migrations/0008_auto_20181113_1552.py" />
+        <option value="$PROJECT_DIR$/tunes/migrations/0009_auto_20181113_1653.py" />
+        <option value="$PROJECT_DIR$/tunes/migrations/0010_auto_20181114_1059.py" />
+        <option value="$PROJECT_DIR$/tunes/migrations/0011_auto_20181114_1128.py" />
+        <option value="$PROJECT_DIR$/tunes/migrations/0012_auto_20181114_1139.py" />
+        <option value="$PROJECT_DIR$/tunes/migrations/0013_auto_20181114_1143.py" />
+        <option value="$PROJECT_DIR$/tunes/templates/tunes/playlist_load.html" />
+        <option value="$PROJECT_DIR$/tunes/templates/tunes/tune_list.html" />
+        <option value="$PROJECT_DIR$/tunes/migrations/0014_auto_20181119_1408.py" />
+        <option value="$PROJECT_DIR$/tunes/load_ituneslib.py" />
+        <option value="$PROJECT_DIR$/tunes/migrations/0015_auto_20181120_1107.py" />
+        <option value="$PROJECT_DIR$/GEO/urls.py" />
+        <option value="$PROJECT_DIR$/tunes/templates/tunes/song_detail.html" />
+        <option value="$PROJECT_DIR$/GEO/settings.py" />
+        <option value="$PROJECT_DIR$/tunes/migrations/0016_auto_20181123_1454.py" />
+        <option value="$PROJECT_DIR$/tunes/templates/tunes/playlist_detail.html" />
+        <option value="$PROJECT_DIR$/tunes/templates/tunes/musiclibrary_form.html" />
+        <option value="$PROJECT_DIR$/tunes/urls.py" />
+        <option value="$PROJECT_DIR$/tunes/templates/tunes/musiclibrary_detail.html" />
+        <option value="$PROJECT_DIR$/tunes/templates/base_generic.html" />
+        <option value="$PROJECT_DIR$/tunes/templates/tunes/musiclibraryplaylist_form.html" />
+        <option value="$PROJECT_DIR$/tunes/views.py" />
+        <option value="$PROJECT_DIR$/tunes/migrations/0018_auto_20181205_1020.py" />
+        <option value="$PROJECT_DIR$/tunes/migrations/0017_auto_20181205_1018.py" />
+        <option value="$PROJECT_DIR$/tunes/migrations/0019_auto_20181205_1026.py" />
+        <option value="$PROJECT_DIR$/tunes/admin.py" />
+        <option value="$PROJECT_DIR$/tunes/models.py" />
+        <option value="$PROJECT_DIR$/tunes/forms.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1920" />
-    <option name="width" value="1473" />
-    <option name="height" value="1057" />
+    <option name="x" value="64" />
+    <option name="y" value="27" />
+    <option name="width" value="1402" />
+    <option name="height" value="1053" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -273,6 +296,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -311,7 +335,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -322,13 +345,13 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tunes" />
+      <recent name="$PROJECT_DIR$/tunes/templates/tunes" />
       <recent name="$PROJECT_DIR$/tunes/templates" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/tunes/templates/tunes" />
-      <recent name="$PROJECT_DIR$/tunes" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/tunes/templates" />
     </key>
   </component>
@@ -344,7 +367,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.load_ituneslib">
     <configuration name="download_geo_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="GEO" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -366,8 +389,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="load_ituneslib" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="GEO" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tunes" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tunes/load_ituneslib.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.download_geo_data" />
+      <item itemvalue="Python.load_ituneslib" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.load_ituneslib" />
         <item itemvalue="Python.download_geo_data" />
       </list>
     </recent_temporary>
@@ -395,19 +444,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="0" width="1473" height="1057" extended-state="0" />
-    <editor active="true" />
+    <frame x="64" y="27" width="1402" height="1053" extended-state="0" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49841774" visible="true" weight="0.22451791" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49841774" visible="true" weight="0.23606083" />
       <window_info id="Structure" order="2" sideWeight="0.50158226" side_tool="true" weight="0.4312455" />
-      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.49838188" visible="true" weight="0.32908705" />
+      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.49838188" visible="true" weight="0.3304904" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50161815" side_tool="true" weight="0.32460734" />
-      <window_info anchor="bottom" id="Python Console" order="2" sideWeight="0.49931225" weight="0.32908705" />
+      <window_info anchor="bottom" id="Python Console" order="2" sideWeight="0.49931225" weight="0.32858837" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32908705" />
       <window_info anchor="bottom" id="Version Control" order="5" />
-      <window_info anchor="bottom" id="Run" order="6" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.32908705" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -432,12 +480,159 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/change_password.html">
+    <entry file="file://$USER_HOME$/geo/lib/python3.7/site-packages/iTunesLibrary-1.1.1.dist-info/INSTALLER">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/geo/lib/python3.7/site-packages/iTunesLibrary-1.1.1.dist-info/METADATA">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/geo/lib/python3.7/site-packages/iTunesLibrary-1.1.1.dist-info/RECORD">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/geo/lib/python3.7/site-packages/iTunesLibrary-1.1.1.dist-info/top_level.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/geo/lib/python3.7/site-packages/iTunesLibrary-1.1.1.dist-info/WHEEL">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/geo/lib/python3.7/site-packages/itunes/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/geo/lib/python3.7/site-packages/django_leaflet-0.24.0.dist-info/top_level.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/geo/lib/python3.7/site-packages/django_leaflet-0.24.0.dist-info/RECORD">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/migrations/0008_auto_20181113_1552.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+        <state relative-caret-position="345">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/geo/lib/python3.7/site-packages/django/conf/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/download_geo_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="48" lean-forward="true" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/migrations/0009_auto_20181113_1653.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="20" lean-forward="true" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/migrations/0010_auto_20181114_1059.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/migrations/0011_auto_20181114_1128.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="12" lean-forward="true" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/migrations/0012_auto_20181114_1139.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/migrations/0013_auto_20181114_1143.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GEO/settings (original).py" />
+    <entry file="file://$PROJECT_DIR$/tunes/migrations/0014_auto_20181119_1408.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="26" selection-start-line="26" selection-end-line="33" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/geo/lib/python3.7/site-packages/django/db/backends/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/tune_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/geo/lib/python3.7/site-packages/django/core/handlers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="139" column="69" lean-forward="true" selection-start-line="139" selection-start-column="69" selection-end-line="139" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/migrations/0015_auto_20181120_1107.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GEO/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="37" column="49" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GEO/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="125" lean-forward="true" selection-start-line="125" selection-end-line="125" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/Playlist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/playlist_load.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/geouser_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="38" lean-forward="true" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/user_form.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/playlist_form.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -448,291 +643,181 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/tune_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+        <state relative-caret-position="45">
+          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/geolocation_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/playlist_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/Library.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1425">
+          <caret line="102" column="19" selection-start-line="102" selection-start-column="8" selection-end-line="102" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/playlist_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+        <state relative-caret-position="150">
+          <caret line="10" column="69" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="69" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/tune_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/tune_confirm_delete.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/playlist_confirm_delete.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/usertunelocation_confirm_delete.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/usertunelocation_list_old.html" />
-    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/usertunelocation_form_old.html" />
-    <entry file="file://$PROJECT_DIR$/templates/registration/password_reset_complete.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/password_reset_confirm.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/password_reset_done.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/password_reset_email.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/password_reset_form.html">
+    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/musiclibrary_form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/logged_out.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
+    <entry file="file://$PROJECT_DIR$/tunes/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/filters.py" />
-    <entry file="file://$PROJECT_DIR$/tunes/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/admin.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+        <state relative-caret-position="570">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/song_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="40" column="15" selection-start-line="40" selection-start-column="15" selection-end-line="40" selection-end-column="15" />
+        <state>
+          <caret selection-end-line="4" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/geo/lib/python3.7/site-packages/django/conf/urls/static.py">
+    <entry file="file://$PROJECT_DIR$/tunes/templates/base_generic.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="375">
+          <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/musiclibrary_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="45" lean-forward="true" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
+        <state relative-caret-position="300">
+          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/urllib/request.py">
+    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/musiclibraryplaylist_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
-          <caret line="592" column="30" lean-forward="true" selection-start-line="592" selection-start-column="30" selection-end-line="592" selection-end-column="30" />
+        <state relative-caret-position="270">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/migrations/0003_geolocation_owner.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/migrations/0002_auto_20181027_1057.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/migrations/0005_state.py">
+    <entry file="file://$PROJECT_DIR$/tunes/load_ituneslib.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="120">
+          <caret line="14" selection-start-line="14" selection-end-line="14" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/migrations/0004_auto_20181107_1049.py">
+    <entry file="file://$PROJECT_DIR$/tunes/Song.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="64" column="19" lean-forward="true" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-469">
+          <caret line="335" lean-forward="true" selection-start-line="335" selection-end-line="335" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <marker date="1544023101272" expanded="true" signature="1129:8230" ph="..." />
+            <marker date="1544023101272" expanded="true" signature="4354:4359" ph="..." />
+            <marker date="1544023101272" expanded="true" signature="4651:5218" ph="..." />
+            <marker date="1544023101272" expanded="true" signature="7122:7123" ph="..." />
+            <marker date="1544023101272" expanded="true" signature="13157:13162" ph="..." />
+            <marker date="1544023101272" expanded="true" signature="13754:13759" ph="..." />
+            <marker date="1544023101272" expanded="true" signature="13878:13883" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/migrations/0019_auto_20181205_1026.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="34" lean-forward="true" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/migrations/0018_auto_20181205_1020.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/migrations/0006_auto_20181107_1407.py">
+    <entry file="file://$PROJECT_DIR$/tunes/migrations/0017_auto_20181205_1018.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="90">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/download_geo_data.py">
+    <entry file="file://$PROJECT_DIR$/tunes/migrations/0016_auto_20181123_1454.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="36" column="3" lean-forward="true" selection-start-line="36" selection-start-column="3" selection-end-line="36" selection-end-column="3" />
+        <state relative-caret-position="573">
+          <caret line="52" column="10" lean-forward="true" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/migrations/0007_auto_20181108_1312.py">
+    <entry file="file://$PROJECT_DIR$/tunes/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/geolocation_detail2.html" />
-    <entry file="file://$PROJECT_DIR$/tunes/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/geolocation_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="71" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/geolocation_search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+        <state relative-caret-position="240">
+          <caret line="24" column="42" lean-forward="true" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tunes/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1605">
-          <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
+        <state relative-caret-position="319">
+          <caret line="141" column="27" lean-forward="true" selection-start-line="141" selection-start-column="27" selection-end-line="141" selection-end-column="27" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
-            <marker date="1541702000910" expanded="true" signature="1056:1094" ph="..." />
-            <marker date="1541702000910" expanded="true" signature="3574:3852" ph="..." />
+            <marker date="1544025245361" expanded="true" signature="1056:1094" ph="..." />
+            <marker date="1544025245361" expanded="true" signature="1955:2780" ph="..." />
+            <marker date="1544025245361" expanded="true" signature="2539:2780" ph="..." />
+            <marker date="1544025245361" expanded="true" signature="4411:4689" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/geouser_update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/geolocation_create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/geolocation_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/geouser_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/geolocation_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="126" column="51" lean-forward="true" selection-start-line="126" selection-start-column="51" selection-end-line="126" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1542052253768" expanded="true" signature="1010:7285" ph="..." />
-            <marker date="1542052253768" expanded="true" signature="4199:4204" ph="..." />
-            <marker date="1542052253768" expanded="true" signature="4496:5063" ph="..." />
-            <marker date="1542052253768" expanded="true" signature="4843:5063" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/geo/lib/python3.7/site-packages/django/forms/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="242" selection-start-line="242" selection-end-line="242" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/templates/base_generic.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="62" column="17" lean-forward="true" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tunes/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="37" column="16" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+        <state relative-caret-position="334">
+          <caret line="25" column="43" lean-forward="true" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
           <folding>
-            <element signature="e#0#54#0" expanded="true" />
+            <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GEO/.gitignore">
+    <entry file="file://$PROJECT_DIR$/tunes/migrations/0001_initial.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="67" column="12" lean-forward="true" selection-start-line="67" selection-start-column="12" selection-end-line="67" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEO/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="120">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>

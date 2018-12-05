@@ -1,9 +1,16 @@
 from django.contrib.gis import admin
+
+from .models import GeoLocation
 from .models import GeoUser
+from .models import MusicLibrary
+from .models import MusicLibraryPlaylist
 from .models import Playlist
 from .models import Tune
 from .models import UserTuneLocation
-from .models import GeoLocation
+
+
+class MusicLibraryAdmin(admin.ModelAdmin):
+    pass
 
 
 class PlaylistAdmin(admin.ModelAdmin):
@@ -28,10 +35,15 @@ class UserTuneLocationAdmin(admin.ModelAdmin):
 
 
 class TuneAdmin(admin.ModelAdmin):
-    readonly_fields = ["time_last_played", "time_last_skipped", "play_count", "skip_count"]
-    list_filter = ('owner', 'title', 'author')
+    list_filter = ('owner', 'title', 'artist', 'album')
 
 
+class MusicLibraryPlaylistAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(MusicLibraryPlaylist, MusicLibraryPlaylistAdmin)
+admin.site.register(MusicLibrary, MusicLibraryAdmin)
 admin.site.register(Playlist, PlaylistAdmin)
 admin.site.register(Tune, TuneAdmin)
 admin.site.register(GeoLocation, GeoLocationAdmin)

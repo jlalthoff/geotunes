@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1> Register the Songs from this Music Library Playlist</h1>
+
+<p>Music Library: {{ library }}
+<p>Playlist name: {{ name }}
+
+<form action=""   method="post">
+    {% csrf_token %}
+Press OK button to register these songs:
+    <input type="submit" value="OK">
+</form>
+<hr>
+{% for song in song_list %}
+<p> {{ song.name }}
+{% endfor %}
+
+
+
+
+
+{% endblock %}

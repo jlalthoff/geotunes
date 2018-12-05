@@ -24,10 +24,10 @@ from decouple import config, Csv
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
-DATABASES = {'default': dj_database_url.config(
-                default=config('DATABASE+URL')
-                )
-            }
+# DATABASES = {'default': dj_database_url.config(
+#                 default=config('DATABASE+URL')
+#                 )
+#             }
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -141,9 +141,15 @@ LOGOUT_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/Users/'
-#BEWARE
-#Media root allows getting any music on the server, not relative to this project
-MEDIA_ROOT= os.path.abspath('/')
+# MEDIA_URL = '/media/'
+MEDIA_URL = '/media/'
 
-GOOGLE_API_KEY='AIzaSyAQO7k33zn4Qo82imN30IrXuw35dXnc1U4'
+MEDIA_ROOT = '/'
+
+
+GOOGLE_API_KEY ='AIzaSyAQO7k33zn4Qo82imN30IrXuw35dXnc1U4'
+
+
+
+
+

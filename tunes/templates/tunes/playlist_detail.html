@@ -7,11 +7,11 @@
 <p>created {{ playlist.date_created }} </p>
 
 Songs
-</h4>
+
 
 <ol>
 {% for song in playlist.tunes.all  %}
-    <li><a href="{% url 'tune_detail' song.pk %}"> {{ song.title }}</a> by {{song.author }}</li>
+    <li><a href="{% url 'tune_detail' song.pk %}"> {{ song.title }}</a> by {{song.artist }}</li>
 
 {% endfor %}
 </ol>

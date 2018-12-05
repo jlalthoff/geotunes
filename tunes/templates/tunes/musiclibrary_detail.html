@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1> Music Library</h1>
+
+<p>{{musiclibrary.name}}</p>
+<p> of type:  {{musiclibrary.type}}</p>
+<p> stored at: {{musiclibrary.filepath}}</p>
+
+<table>
+{% for playlist in musiclibrary.musiclibraryplaylist_set.all %}
+    <tr>
+    {% if not playlist.loaded %}
+        <td>  <a href="{% url 'load_playlist' playlist.pk %}" >Load </a> </td>
+    {% else %}
+        <td>  Already loaded: </td>
+    {% endif %}
+        <td> {{ playlist.name }}</td>
+    </tr>
+{% endfor %}
+
+</table>
+
+{% endblock content %}

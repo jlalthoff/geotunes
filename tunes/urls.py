@@ -15,7 +15,7 @@ urlpatterns = [
     path('register/', views.register,                               name='register'),
     path('user/<int:pk>/update/',   views.UserUpdate.as_view(),     name='update_user'),
     path('password/', views.change_password,                        name='change_password'),
-
+#TODO: add ability to upload music,  currently only "registered library" music can be played.
     path('tune/create/', views.TuneCreate.as_view(),                name='tune_create'),
     path('tune/<int:pk>/delete/', views.TuneDelete.as_view(),       name='tune_delete'),
     path('tunes/', views.TuneListView.as_view(),                    name='tunes'),
@@ -26,11 +26,15 @@ urlpatterns = [
     path('locations/', views.GeoLocationList.as_view(),             name='location_list'),
     path('mylocations/', views.MyGeoLocationList.as_view(),         name='my_location_list'),
     path('locations/search/', views.GeoLocationList.as_view(),      name='location_search'),
-    path('location/<int:pk>', views.GeoLocationDetail.as_view(),    name='geolocation_detail'),
+    # path('location/<int:pk>', views.GeoLocationDetail.as_view(),    name='geolocation_detail'),
     path('location/<int:pk>/update', views.GeoLocationUpdate.as_view(), name='geolocation_update'),
     path('location/create/', views.GeoLocationCreate.as_view(),     name='geolocation_create'),
 
     path('geouser/<int:pk>/update/', views.GeoUserUpdate.as_view(),  name='geouser_update'),
+    path('library/',  views.LoadLibrary.as_view(),                   name='load_playlist'),
+    path('library/create/', views.LibCreate.as_view(),               name='library_create'),
+    path('library/<int:pk>', views.LibraryDetail.as_view(),          name='library_detail'),
+    path('libplaylist/<int:pk>', views.libplaylistload,              name='load_playlist'),
 
 
 

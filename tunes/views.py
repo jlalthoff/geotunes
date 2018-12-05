@@ -10,7 +10,10 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+from .Library import Library
+from .forms import LibraryLoadForm
 from .forms import UserForm, UserLocationForm, GeoLocationForm, GeoUserForm
+from .models import MusicLibrary, MusicLibraryPlaylist
 from .models import Playlist, Tune, GeoUser, UserTuneLocation, GeoLocation
 
 
@@ -25,7 +28,7 @@ def index(request):
 
 class TuneCreate(LoginRequiredMixin, CreateView):
     model = Tune
-    fields = ['tune_content', 'title', 'author']
+    fields = ['tune_content', 'title', 'artist']
 
     def form_valid(self, form):
         form.instance.owner = self.request.user
@@ -34,7 +37,7 @@ class TuneCreate(LoginRequiredMixin, CreateView):
 
 class TuneDelete(LoginRequiredMixin, DeleteView):
     model = Tune
-    fields = ['title', 'author', 'usertunelocations']
+    fields = ['title', 'artist', 'usertunelocations']
     success_url = reverse_lazy('tunes')
 
 
@@ -96,22 +99,22 @@ class MyGeoLocationList(LoginRequiredMixin, ListView):
         return super().form_valid(form)
 
 
-class GeoLocationDetail(LoginRequiredMixin, UpdateView):
-    model = GeoLocation
-    form = UserLocationForm
-    fields ={'name', 'type', 'state', 'geom'}
-    template_name = 'tunes/geolocation_detail.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        tune_list = findsongsbyarea(self.object)
-        context['tune_list'] = tune_list
-        print(context)
-        return context
-
-        def get_success_url(self):
-            return reverse('geolocation_detail',
-                           kwargs={'pk': self.object.pk})
+# class GeoLocationDetail(LoginRequiredMixin, DetailView):
+#     model = GeoLocation
+#     form_class = UserLocationForm
+#     fields ={'name', 'type', 'state', 'geom'}
+#     template_name = 'tunes/geolocation_detail.html'
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         tune_list = findsongsbyarea(self.object)
+#         context['tune_list'] = tune_list
+#         print(context)
+#         return context
+#
+#         def get_success_url(self):
+#             return reverse('geolocation_detail',
+#                            kwargs={'pk': self.object.pk})
 
 
 def findsongsbyarea(thelocation):
@@ -146,8 +149,8 @@ class GeoLocationUpdate(LoginRequiredMixin, UpdateView):
 def song(request, pk):
     thesong = get_object_or_404(Tune, pk=pk)
     geolocation_list = []
-    geouser = get_object_or_404(GeoUser, pk=request.user.pk)
-    playlists = Playlist.objects.filter(owner=geouser)
+    u = get_object_or_404(User, pk=request.user.pk)
+    playlists = Playlist.objects.filter(owner=u)
     button = 'Search'
     if request.method == 'POST':
         searchparam = request.POST['query']
@@ -165,10 +168,37 @@ def song(request, pk):
 def addlocations(loclist, thesong):
     for loc in loclist:
         utl = UserTuneLocation()
-        utl.user = get_object_or_404(GeoUser, pk=thesong.owner.id)
+        utl.user = get_object_or_404(User, pk=thesong.owner.id)
         utl.location = get_object_or_404(GeoLocation, pk=loc)
         utl.tune = thesong
         utl.save()
+
+
+# -------------------------------------------------------------
+
+
+# @login_required
+# def loadlibrary(request):
+#     song_count = Tune.objects.all().count()
+#     library_list = MusicLibrary.objects.all()
+#     context = {
+#         'song_count': song_count,
+#         'library_list': library_list,
+#     }
+#     if request.method == 'POST':
+#         form = LibraryLoadForm(request.POST)
+#         context['form'] = form
+#         # if form.is_valid():
+#         # print(form.cleaned_data)
+#         # libloc = form.cleaned_data['name']
+#         # process the data in form.cleaned_data
+#
+#         load_count = 0;
+#         return render(request, 'tunes/playlist_load.html', context)
+#     else:
+#         form = LibraryLoadForm()
+#
+#         return render(request, 'tunes/playlist_load.html', context)
 
 
 # -------------------------------------------------------------
@@ -223,8 +253,8 @@ class PlaylistCreate(LoginRequiredMixin, CreateView):
     fields = ['name', 'tunes']
 
     def form_valid(self, form):
-        g = GeoUser.objects.get(pk=self.request.user.pk)
-        form.instance.owner = g
+        u = User.objects.get(pk=self.request.user.pk)
+        form.instance.owner = u
         return super().form_valid(form)
 
 
@@ -254,8 +284,8 @@ class LinkCreate(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         key = self.request.user.pk
-        g = get_object_or_404(GeoUser, pk=key)
-        form.instance.user = g
+        u = get_object_or_404(User, pk=key)
+        form.instance.user = u
         return super().form_valid(form)
 
 
@@ -303,4 +333,120 @@ def change_password(request):
         'form': form
     })
 
+
 # ------------------------------------------------------------
+
+class LoadLibrary(LoginRequiredMixin, CreateView):
+    form_class = LibraryLoadForm
+    model = Playlist
+
+    # def form_valid(self, form):
+    #     print(form.cleaned_data['name'])
+    #     lib = get_object_or_404(MusicLibrary, name=form.cleaned_data['lib_name'])
+    #     # does playlist already exist?
+    #     print('library found:', lib)
+    #     # add new songs to database, add each song to the Playlist (form.instance)
+    #     g = GeoUser.objects.get(pk=self.request.user.pk)
+    #     form.instance = addLibrarySongs(lib, form.instance, g)
+    #     form.instance.owner = g
+    #     try:
+    #         return super().form_valid(form)
+    #     except IntegrityError as e:
+    #         messages.add_message(self.request, messages.ERROR,
+    #                              'You already loaded this playlist')
+    #         return render(self.request, template_name='tunes/playlist_list.html',
+    #                       context=self.get_context_data())
+
+
+def addLibrarySongs(lib, playlist, geoowner):
+    print('Using:', lib.filepath, ' with ', playlist.name)
+    l = Library.Library(lib.filepath)
+    pl = l.getPlaylist(playlist.name)
+    owner = geoowner.user
+    if pl:
+        for song in pl.tracks:
+            print(song.location, '======', song.name, ' BY ', song.artist)
+            try:
+                t = Tune.objects.get(tune_url=song.location_escaped)
+            except Tune.DoesNotExist:
+                t = Tune()
+                t.owner = owner
+                t.artist = song.artist
+                t.title = song.name
+                t.album = song.album
+                t.tune_content = song.location
+                t.tune_url = song.location_escaped
+                t.save(commit=False)
+                print('Saved', t)
+            # just add "t" object to the list of songs for the new_playlist
+            playlist.tunes.append(t)
+    else:
+        print('playlist does not exist in library specified.')
+    return playlist
+
+
+class LibCreate(LoginRequiredMixin, CreateView):
+    model = MusicLibrary
+    fields = ['name', 'type', 'filepath']
+
+    def form_valid(self, form):
+        # add a MusicLibraryPlaylist for each playlist found in the MusicLibrary.
+        # form.instance = addLibraryPlaylists(form.instance)
+        form.instance.save()
+        lib = Library(form.instance.filepath)
+        for plname in lib.getPlaylistNames():
+            p = MusicLibraryPlaylist(library=form.instance)
+            p.name = plname
+            p.loaded = False
+            p.save()
+        return super().form_valid(form)
+
+
+class LibraryDetail(LoginRequiredMixin, DetailView):
+    model = MusicLibrary
+    fields = ['name', 'type', 'filepath']
+
+
+class LibPlaylistLoad(LoginRequiredMixin, UpdateView):
+    model = MusicLibraryPlaylist
+    fields = ('name', 'loaded',)
+    pk_url_kwarg = 'playlist_pk'
+    context_object_name = 'playlist'
+
+
+    def songs(self):
+        lib = Library(playlist.library.filepath)
+        songs = lib.getPlaylist(playlist.name)
+        return songs
+
+@login_required
+def libplaylistload(request, pk):
+    thepl = get_object_or_404(MusicLibraryPlaylist, pk=pk)
+    lib = Library(thepl.library.filepath)
+    song_list = lib.getPlaylist(thepl.name).tracks
+    context = {'library': thepl.library.name, 'song_list': song_list, 'name': thepl.name, }
+    if request.method == 'POST':
+        key = request.user.pk
+        owner = get_object_or_404(User, pk=key)
+        playlist = Playlist()
+        playlist.name = thepl.name
+        playlist.owner = owner
+        playlist.save()
+        for song in song_list:
+            savesong(song, owner, playlist)
+    return render(request, 'tunes/musiclibraryplaylist_form.html', context=context)
+
+def savesong(song, o, playlist):
+    t = Tune()
+    try:
+        t.owner = o
+        t.artist = song.artist
+        t.title = song.name
+        t.album = song.album
+        t.tune_content = song.location
+        t.tune_url = song.location_escaped
+        t.save()
+    except:
+        pass
+    playlist.tunes.add(t)
+    playlist.save()

@@ -55,13 +55,42 @@ request.session['current_location_lon']
 request.session['will_loop_playlist']  (boolean)
 request.session['will_randomize_playlist'] (boolean)
 """
+# --------------------------------------------------------------------------------
+
+LIBRARY_TYPES = (
+    ('iTunes', 'Apple Itunes Music Library'),
+    ('other', 'To Be Determined'),
+)
+
+
+class MusicLibrary(models.Model):
+    name = models.CharField(max_length=30, unique=True)
+    type = models.CharField(max_length=12, choices=LIBRARY_TYPES, default='iTunes')
+    filepath = models.FileField(max_length=1000, upload_to='Users/jerryalthoff/uploads/%Y/%m/%d', unique=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        """Returns the url to access a particular instance of the model."""
+        #  return reverse('playlist_detail', args=[str(self.id)])
+        return reverse('library_detail', kwargs={'pk': self.pk})
+
+
+class MusicLibraryPlaylist(models.Model):
+    name = models.CharField(max_length=100)
+    library = models.ForeignKey(MusicLibrary, on_delete=models.CASCADE)
+    loaded = models.BooleanField(default=True)
+
+    def __str__(self):
+        return 'name' + ' IN ' + self.library.name
 
 
 # --------------------------------------------------------------------------------
 class Playlist(models.Model):
     name = models.CharField(max_length=100)
     date_created = models.DateTimeField('date created', auto_now_add=True)
-    owner = models.ForeignKey(GeoUser, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     tunes = models.ManyToManyField('Tune')
 
     def __str__(self):
@@ -81,24 +110,22 @@ class Playlist(models.Model):
 
 class Tune(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    author = models.CharField(max_length=100, default='unknown')
-    title = models.CharField(max_length=100)
-    play_count = models.PositiveIntegerField(default=0)
-    skip_count = models.PositiveIntegerField(default=0)
-    time_last_played = models.DateTimeField('time last played', null=True, blank=True)
-    time_last_skipped = models.DateTimeField('time last skipped', null=True, blank=True)
-    tune_content = models.FileField(upload_to='uploads/%Y/%m/%d')
+    artist = models.CharField(max_length=100, default='unknown')
+    title = models.CharField(max_length=200)
+    album = models.CharField(max_length=200, default='None')
+    tune_content = models.FileField(max_length=1000, upload_to='uploads/%Y/%m/%d')
+    tune_url = models.URLField(max_length=1000, unique=True)
 
     def __str__(self):
-        return self.title + ' By ' + self.author
+        return self.title + ' By ' + self.artist
 
     def get_absolute_url(self):
         """Returns the url to access a particular instance of the model."""
         return reverse('tune_detail', args=[str(self.id)])
 
     class Meta:
-        unique_together = ('owner', 'author', 'title')
-        ordering = ['author', 'title']
+        ordering = ['artist', 'title']
+
 
 # --------------------------------------------------------------------------------
 
@@ -133,7 +160,7 @@ class GeoLocation(models.Model):
     geom = models.MultiPolygonField(srid=4326)
 
     def __str__(self):
-        return self.type + ':' +  self.name + '(' + self.state + ')'
+        return self.type + ':' + self.name + '(' + self.state + ')'
 
     def get_absolute_url(self):
         """Returns the url to access a particular instance of the model."""

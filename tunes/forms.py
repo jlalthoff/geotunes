@@ -1,9 +1,11 @@
+from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.gis.forms import OSMWidget, MultiPolygonField, ModelForm, CharField, TypedChoiceField, \
     PointField
 
-from .models import GeoLocation, GeoUser, State
+from .models import GeoLocation, GeoUser,  MusicLibrary, Playlist
+from .models import State
 
 
 class UserForm(UserCreationForm):
@@ -28,7 +30,7 @@ class GeoLocationForm(ModelForm):
 
     class Meta:
         model = GeoLocation
-        fields = ['name', 'state',]
+        fields = ['name', 'state', ]
 
 
 # used for the "Add Location" menu choice
@@ -47,10 +49,8 @@ class UserLocationForm(ModelForm):
         model = GeoLocation
         fields = ['geom', 'name', 'state']
 
+
 # used for geolocation details
-#TODO: find out why OSMWidget ignored and using NASA World view
-#TODO: don't allow geometry update unless the type is 'USER"
-#TODO: allow for adding/deleting songs from the tunes_list
 # class GeoLocationUpdateForm(ModelForm):
 #     name = CharField(required=True)
 #     state = TypedChoiceField(choices=list(pick_list), required=False)
@@ -78,3 +78,15 @@ class GeoUserForm(ModelForm):
     class Meta:
         model = GeoUser
         fields = ['default_center_point']
+
+
+class LibraryLoadForm(ModelForm):
+    lib_name = forms.ModelChoiceField(queryset=MusicLibrary.objects.all(),
+                                  label='Choose a library',
+                                  help_text='Choose a previously defined library')
+    name = forms.CharField(label='Playlist name',
+                               initial='----------')
+
+    class Meta:
+        model = Playlist
+        fields = ['name']
