@@ -4,40 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f49e2487-cf67-4316-a144-a0c0c5f7bc11" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tunes/Library.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tunes/Playlist.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tunes/Song.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tunes/load_ituneslib.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tunes/templates/tunes/musiclibrary_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tunes/templates/tunes/musiclibrary_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tunes/templates/tunes/musiclibraryplaylist_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tunes/templates/tunes/playlist_load.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GEO/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/GEO/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/migrations/0002_auto_20181027_1057.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/migrations/0003_geolocation_owner.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/migrations/0004_auto_20181107_1049.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/migrations/0005_state.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/migrations/0006_auto_20181107_1407.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/migrations/0007_auto_20181108_1312.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/templates/base_generic.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/base_generic.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/templates/tunes/geolocation_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/tunes/geolocation_form_old.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/templates/tunes/geolocation_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/tunes/geolocation_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/templates/tunes/geouser_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/tunes/geouser_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/templates/tunes/playlist_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/tunes/playlist_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/templates/tunes/playlist_play.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/tunes/playlist_play.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/templates/tunes/song_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/tunes/song_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/templates/tunes/tune_confirm_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/tunes/tune_confirm_delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/templates/tunes/tune_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/tunes/tune_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="f49e2487-cf67-4316-a144-a0c0c5f7bc11" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,13 +59,14 @@
           <entry key="env" value="55" />
           <entry key="html" value="11431" />
           <entry key="py" value="39189" />
+          <entry key="txt" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="5" />
           <entry key="HTML" value="11431" />
-          <entry key="PLAIN_TEXT" value="55" />
+          <entry key="PLAIN_TEXT" value="87" />
           <entry key="Python" value="39843" />
         </counts>
       </usages-collector>
@@ -165,8 +133,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tunes/migrations/0001_initial.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="60">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -285,8 +253,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="27" />
+    <option name="x" value="132" />
+    <option name="y" value="23" />
     <option name="width" value="1402" />
     <option name="height" value="1053" />
   </component>
@@ -432,6 +400,14 @@
       <option name="presentableId" value="Default" />
       <updated>1539293520008</updated>
     </task>
+    <task id="LOCAL-00001" summary="save after rebuilding database">
+      <created>1544025836730</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1544025836730</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -444,17 +420,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="27" width="1402" height="1053" extended-state="0" />
+    <frame x="132" y="23" width="1402" height="1053" extended-state="0" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49841774" visible="true" weight="0.23606083" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49841774" visible="true" weight="0.23606083" />
       <window_info id="Structure" order="2" sideWeight="0.50158226" side_tool="true" weight="0.4312455" />
-      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.49838188" visible="true" weight="0.3304904" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.49838188" visible="true" weight="0.3304904" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50161815" side_tool="true" weight="0.32460734" />
       <window_info anchor="bottom" id="Python Console" order="2" sideWeight="0.49931225" weight="0.32858837" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32908705" />
-      <window_info anchor="bottom" id="Version Control" order="5" />
+      <window_info anchor="bottom" id="Version Control" order="5" weight="0.3283582" />
       <window_info anchor="bottom" id="Run" order="6" weight="0.32908705" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
@@ -465,8 +441,38 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="save after rebuilding database" />
+    <option name="LAST_COMMIT_MESSAGE" value="save after rebuilding database" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -816,8 +822,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tunes/migrations/0001_initial.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="60">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
