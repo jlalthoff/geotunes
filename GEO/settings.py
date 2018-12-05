@@ -147,7 +147,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = '/'
 
 
-GOOGLE_API_KEY ='AIzaSyAQO7k33zn4Qo82imN30IrXuw35dXnc1U4'
+
 
 
 
