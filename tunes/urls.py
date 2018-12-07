@@ -31,7 +31,7 @@ urlpatterns = [
     path('location/create/', views.GeoLocationCreate.as_view(),     name='geolocation_create'),
 
     path('geouser/<int:pk>/update/', views.GeoUserUpdate.as_view(),  name='geouser_update'),
-    path('library/',  views.LoadLibrary.as_view(),                   name='load_playlist'),
+    path('libraries/',  views.LibraryList.as_view(),                 name='libraries'),
     path('library/create/', views.LibCreate.as_view(),               name='library_create'),
     path('library/<int:pk>', views.LibraryDetail.as_view(),          name='library_detail'),
     path('libplaylist/<int:pk>', views.libplaylistload,              name='load_playlist'),

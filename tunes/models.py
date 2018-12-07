@@ -34,29 +34,6 @@ class GeoUser(models.Model):
 
 # --------------------------------------------------------------------------------
 
-#
-# class Session(extends django session)
-# user FK
-# current_track
-# current_playlist
-# next_track
-# current_location(point)
-# will_loop_playlist
-# will_randomize_playlist
-
-"""
-Session:
-request.session['current_user_id']
-request.session['current_track_id']
-request.session['current_playlist_id']
-request.session['next_tune_id']
-request.session['current_location_lat']
-request.session['current_location_lon']
-request.session['will_loop_playlist']  (boolean)
-request.session['will_randomize_playlist'] (boolean)
-"""
-# --------------------------------------------------------------------------------
-
 LIBRARY_TYPES = (
     ('iTunes', 'Apple Itunes Music Library'),
     ('other', 'To Be Determined'),
@@ -65,6 +42,7 @@ LIBRARY_TYPES = (
 
 class MusicLibrary(models.Model):
     name = models.CharField(max_length=30, unique=True)
+    #TODO: add an owner attribute FK from user
     type = models.CharField(max_length=12, choices=LIBRARY_TYPES, default='iTunes')
     filepath = models.FileField(max_length=1000, upload_to='Users/jerryalthoff/uploads/%Y/%m/%d', unique=True)
 
@@ -76,7 +54,11 @@ class MusicLibrary(models.Model):
         #  return reverse('playlist_detail', args=[str(self.id)])
         return reverse('library_detail', kwargs={'pk': self.pk})
 
+    class Meta:
+        ordering = ['name']
 
+
+# --------------------------------------------------------------------------------
 class MusicLibraryPlaylist(models.Model):
     name = models.CharField(max_length=100)
     library = models.ForeignKey(MusicLibrary, on_delete=models.CASCADE)
@@ -84,6 +66,9 @@ class MusicLibraryPlaylist(models.Model):
 
     def __str__(self):
         return 'name' + ' IN ' + self.library.name
+
+    class Meta:
+        ordering = ['name']
 
 
 # --------------------------------------------------------------------------------
@@ -170,13 +155,10 @@ class GeoLocation(models.Model):
         ordering = ['type', 'name', 'state']
 
 
-#  class UserLocation(extends GeoLocation)
-# user FK
-
 # --------------------------------------------------------------------------------
 
 class UserTuneLocation(models.Model):
-    user = models.ForeignKey(GeoUser, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     tune = models.ForeignKey(Tune, on_delete=models.CASCADE)
     location = models.ForeignKey(GeoLocation, on_delete=models.CASCADE)
 

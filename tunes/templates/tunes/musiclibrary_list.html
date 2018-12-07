@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Music Libraries</h1>
+{% if musiclibrary_list %}
+    <p>To load songs, choose a library</p>
+    <ul>
+    {% for musiclibrary in musiclibrary_list %}
+    <li>
+        <a href="{{musiclibrary.get_absolute_url }}"> {{musiclibrary.name }} </a>
+        Type = {{musiclibrary.type}} at
+        <p>{{musiclibrary.filepath}}</p>
+    </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Music Libraries have been created. </p>
+
+{% endif %}
+
+{% endblock %}

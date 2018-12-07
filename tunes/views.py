@@ -11,7 +11,6 @@ from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .Library import Library
-from .forms import LibraryLoadForm
 from .forms import UserForm, UserLocationForm, GeoLocationForm, GeoUserForm
 from .models import MusicLibrary, MusicLibraryPlaylist
 from .models import Playlist, Tune, GeoUser, UserTuneLocation, GeoLocation
@@ -336,53 +335,30 @@ def change_password(request):
 
 # ------------------------------------------------------------
 
-class LoadLibrary(LoginRequiredMixin, CreateView):
-    form_class = LibraryLoadForm
-    model = Playlist
-
-    # def form_valid(self, form):
-    #     print(form.cleaned_data['name'])
-    #     lib = get_object_or_404(MusicLibrary, name=form.cleaned_data['lib_name'])
-    #     # does playlist already exist?
-    #     print('library found:', lib)
-    #     # add new songs to database, add each song to the Playlist (form.instance)
-    #     g = GeoUser.objects.get(pk=self.request.user.pk)
-    #     form.instance = addLibrarySongs(lib, form.instance, g)
-    #     form.instance.owner = g
-    #     try:
-    #         return super().form_valid(form)
-    #     except IntegrityError as e:
-    #         messages.add_message(self.request, messages.ERROR,
-    #                              'You already loaded this playlist')
-    #         return render(self.request, template_name='tunes/playlist_list.html',
-    #                       context=self.get_context_data())
-
-
-def addLibrarySongs(lib, playlist, geoowner):
-    print('Using:', lib.filepath, ' with ', playlist.name)
-    l = Library.Library(lib.filepath)
-    pl = l.getPlaylist(playlist.name)
-    owner = geoowner.user
-    if pl:
-        for song in pl.tracks:
-            print(song.location, '======', song.name, ' BY ', song.artist)
-            try:
-                t = Tune.objects.get(tune_url=song.location_escaped)
-            except Tune.DoesNotExist:
-                t = Tune()
-                t.owner = owner
-                t.artist = song.artist
-                t.title = song.name
-                t.album = song.album
-                t.tune_content = song.location
-                t.tune_url = song.location_escaped
-                t.save(commit=False)
-                print('Saved', t)
-            # just add "t" object to the list of songs for the new_playlist
-            playlist.tunes.append(t)
-    else:
-        print('playlist does not exist in library specified.')
-    return playlist
+# def addLibrarySongs(lib, playlist, geoowner):
+#     l = Library.Library(lib.filepath)
+#     pl = l.getPlaylist(playlist.name)
+#     owner = geoowner.user
+#     if pl:
+#         for song in pl.tracks:
+#             print(song.location, '======', song.name, ' BY ', song.artist)
+#             try:
+#                 t = Tune.objects.get(tune_url=song.location_escaped)
+#             except Tune.DoesNotExist:
+#                 t = Tune()
+#                 t.owner = owner
+#                 t.artist = song.artist
+#                 t.title = song.name
+#                 t.album = song.album
+#                 t.tune_content = song.location
+#                 t.tune_url = song.location_escaped
+#                 t.save(commit=False)
+#                 print('Saved', t)
+#             # just add "t" object to the list of songs for the new_playlist
+#             playlist.tunes.append(t)
+#     else:
+#         print('playlist does not exist in library specified.')
+#     return playlist
 
 
 class LibCreate(LoginRequiredMixin, CreateView):
@@ -402,10 +378,20 @@ class LibCreate(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
+class LibraryList(LoginRequiredMixin, ListView):
+    model = MusicLibrary
+    paginate_by = 25
+
+    def get_queryset(self):
+        return MusicLibrary.objects.all()
+
+
 class LibraryDetail(LoginRequiredMixin, DetailView):
     model = MusicLibrary
     fields = ['name', 'type', 'filepath']
 
+
+# ------------------------------------------------------------
 
 class LibPlaylistLoad(LoginRequiredMixin, UpdateView):
     model = MusicLibraryPlaylist
@@ -413,11 +399,11 @@ class LibPlaylistLoad(LoginRequiredMixin, UpdateView):
     pk_url_kwarg = 'playlist_pk'
     context_object_name = 'playlist'
 
-
     def songs(self):
         lib = Library(playlist.library.filepath)
         songs = lib.getPlaylist(playlist.name)
         return songs
+
 
 @login_required
 def libplaylistload(request, pk):
@@ -425,28 +411,39 @@ def libplaylistload(request, pk):
     lib = Library(thepl.library.filepath)
     song_list = lib.getPlaylist(thepl.name).tracks
     context = {'library': thepl.library.name, 'song_list': song_list, 'name': thepl.name, }
+    if request.method == 'GET':
+        return render(request, 'tunes/musiclibraryplaylist_form.html', context=context)
     if request.method == 'POST':
         key = request.user.pk
         owner = get_object_or_404(User, pk=key)
-        playlist = Playlist()
-        playlist.name = thepl.name
-        playlist.owner = owner
-        playlist.save()
+        try:
+            playlist = Playlist()
+            playlist.name = thepl.name
+            playlist.owner = owner
+            playlist.save()
+        except:
+            #TODO: except needs an exception type
+            playlist = get_object_or_404(Playlist, name=thepl.name, owner=owner)
         for song in song_list:
             savesong(song, owner, playlist)
-    return render(request, 'tunes/musiclibraryplaylist_form.html', context=context)
+        return render(request, 'tunes/playlist_list', context)
+#TODO: when done,  mark the list as loaded and go back to the musiclibrary detail page.
 
 def savesong(song, o, playlist):
-    t = Tune()
     try:
+        t = Tune()
         t.owner = o
         t.artist = song.artist
         t.title = song.name
-        t.album = song.album
+        if song.album:
+            t.album = song.album
         t.tune_content = song.location
         t.tune_url = song.location_escaped
         t.save()
+        playlist.tunes.add(t)
+        playlist.save()
     except:
-        pass
-    playlist.tunes.add(t)
-    playlist.save()
+        #TODO: except needs an exception type.
+        t = get_object_or_404(Tune, tune_url=song.location_escaped)
+        playlist.tunes.add(t)
+        playlist.save()
