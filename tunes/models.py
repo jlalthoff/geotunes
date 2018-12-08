@@ -51,8 +51,7 @@ class MusicLibrary(models.Model):
 
     def get_absolute_url(self):
         """Returns the url to access a particular instance of the model."""
-        #  return reverse('playlist_detail', args=[str(self.id)])
-        return reverse('library_detail', kwargs={'pk': self.pk})
+        return reverse('library_detail', args=[str(self.id)])
 
     class Meta:
         ordering = ['name']

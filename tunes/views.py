@@ -417,33 +417,34 @@ def libplaylistload(request, pk):
         key = request.user.pk
         owner = get_object_or_404(User, pk=key)
         try:
+            playlist = Playlist.objects.get(name=thepl.name, owner=owner)
+        except Playlist.DoesNotExist:
             playlist = Playlist()
             playlist.name = thepl.name
             playlist.owner = owner
             playlist.save()
-        except:
-            #TODO: except needs an exception type
-            playlist = get_object_or_404(Playlist, name=thepl.name, owner=owner)
+        # add all the songs to this playlist.
         for song in song_list:
             savesong(song, owner, playlist)
-        return render(request, 'tunes/playlist_list', context)
-#TODO: when done,  mark the list as loaded and go back to the musiclibrary detail page.
+        thepl.loaded = True
+        thepl.save()
+        # return render(request, thepl.library.get_absolute_url(), context=context)
+        return redirect(thepl.library.get_absolute_url(), context=context)
+
 
 def savesong(song, o, playlist):
     try:
+        t = Tune.objects.get(tune_url=song.location_escaped)
+    except Tune.DoesNotExist:
         t = Tune()
         t.owner = o
-        t.artist = song.artist
+        if song.artist:
+            t.artist = song.artist
         t.title = song.name
         if song.album:
             t.album = song.album
         t.tune_content = song.location
         t.tune_url = song.location_escaped
         t.save()
-        playlist.tunes.add(t)
-        playlist.save()
-    except:
-        #TODO: except needs an exception type.
-        t = get_object_or_404(Tune, tune_url=song.location_escaped)
-        playlist.tunes.add(t)
-        playlist.save()
+    playlist.tunes.add(t)
+    playlist.save()
