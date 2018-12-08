@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 from django.contrib.gis.forms import OSMWidget, MultiPolygonField, ModelForm, CharField, TypedChoiceField, \
     PointField
 
-from .models import GeoLocation, GeoUser,  MusicLibrary, Playlist
-from .models import State
+from .models import GeoLocation, GeoUser, MusicLibrary, Playlist
+from .models import State, Tune
 
 
 class UserForm(UserCreationForm):
@@ -50,21 +50,6 @@ class UserLocationForm(ModelForm):
         fields = ['geom', 'name', 'state']
 
 
-# used for geolocation details
-# class GeoLocationUpdateForm(ModelForm):
-#     name = CharField(required=True)
-#     state = TypedChoiceField(choices=list(pick_list), required=False)
-#     geom = MultiPolygonField(label='Location', srid=4326,
-#                              widget=OSMWidget(
-#                                  attrs={'default_lat': 39.632504, 'default_lon': -84.197948,
-#                                         'default_zoom': 12,
-#                                         'template_name': 'gis/openlayers-osm.html',
-#                                         }))
-#
-#     class Meta:
-#         model = GeoLocation
-#         fields = ['name', 'state', 'type',  'geom']
-
 
 # used for the "Set My Location" menu choice
 class GeoUserForm(ModelForm):
@@ -82,11 +67,22 @@ class GeoUserForm(ModelForm):
 
 class LibraryLoadForm(ModelForm):
     lib_name = forms.ModelChoiceField(queryset=MusicLibrary.objects.all(),
-                                  label='Choose a library',
-                                  help_text='Choose a previously defined library')
+                                      label='Choose a library',
+                                      help_text='Choose a previously defined library')
     name = forms.CharField(label='Playlist name',
-                               initial='----------')
+                           initial='----------')
 
     class Meta:
         model = Playlist
         fields = ['name']
+
+
+# used for "Tunes"  (search)menu choice
+class TuneSearchForm(ModelForm):
+    artist = CharField(required=False)
+    title = CharField(required=False)
+    album = CharField(required=False)
+
+    class Meta:
+        model = Tune
+        fields = ['artist','title', 'album']

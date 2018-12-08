@@ -18,15 +18,20 @@ urlpatterns = [
 #TODO: add ability to upload music,  currently only "registered library" music can be played.
     path('tune/create/', views.TuneCreate.as_view(),                name='tune_create'),
     path('tune/<int:pk>/delete/', views.TuneDelete.as_view(),       name='tune_delete'),
-    path('tunes/', views.TuneListView.as_view(),                    name='tunes'),
+
+
+    path('tunes/search/', views.TuneListView.as_view(),             name='tune_search'),
+    path('tunes/', views.TuneListView.as_view(),                    name='tune_list'),
+
+
     path('song/<int:pk>', views.song,                               name='tune_detail'),
     path('tunes/link/', views.LinkCreate.as_view(),                 name='tune_link'),
     path('usertunelocation/<int:pk>/delete/', views.UserTuneLocationDelete.as_view(), name='link_delete'),
 
-    path('locations/', views.GeoLocationList.as_view(),             name='location_list'),
-    path('mylocations/', views.MyGeoLocationList.as_view(),         name='my_location_list'),
     path('locations/search/', views.GeoLocationList.as_view(),      name='location_search'),
-    # path('location/<int:pk>', views.GeoLocationDetail.as_view(),    name='geolocation_detail'),
+    path('locations/', views.GeoLocationList.as_view(),             name='location_list'),
+
+    path('mylocations/', views.MyGeoLocationList.as_view(), name='my_location_list'),
     path('location/<int:pk>/update', views.GeoLocationUpdate.as_view(), name='geolocation_update'),
     path('location/create/', views.GeoLocationCreate.as_view(),     name='geolocation_create'),
 

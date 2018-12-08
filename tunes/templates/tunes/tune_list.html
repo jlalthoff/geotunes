@@ -2,17 +2,21 @@
 
 {% block content %}
 <h1>Tunes</h1>
+<a href="{% url 'tune_search' %}" > Revise your search parameters</a>
+
 {% if tune_list %}
-    <p>Choose one to play and link to a geographical area.</p>
-    <ul>
+    <p>Choose a tune to play and link to a geographical area.</p>
+    <table>
     {% for tune in tune_list %}
-    <li>
-       {{ tune.artist }}  <a href="{{tune.get_absolute_url }}"> {{tune.title }}</a>
-    </li>
+    <tr>
+       <td>{{ tune.artist }}</td>
+        <td><a href="{{tune.get_absolute_url }}"> {{tune.title }}</a></td>
+        <td>{{tune.album}}</td>
+    </tr>
     {% endfor %}
-    </ul>
+    </table>
 {% else %}
-    <p> No music has been uploaded. </p>
+    <p> No music was found for your search. </p>
 {% endif %}
 
 {% endblock %}
