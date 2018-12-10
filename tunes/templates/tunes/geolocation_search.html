@@ -9,5 +9,13 @@
     <button type="submit">Search</button>
   </form>
 
+{%if location_list %}
+<hr>
+<ul>
+  {% for geolocation in location_list %}
+    <li> <a href="{% url 'geolocation_update' geolocation.pk %}">{{geolocation}}</a> </li>
+  {% endfor %}
+</ul>
+{%endif%}
 
 {% endblock %}

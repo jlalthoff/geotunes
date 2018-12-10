@@ -2,13 +2,20 @@
 
 {% block content %}
 <h1> Create a new playlist</h1>
-  <form action=""  method="post">
+<form action="" method="post">
     {% csrf_token %}
     <p> Use control-click or cmd-click to pick multiple tunes</p>
     <table>
-    {{ form.as_table }}
+        {{ form.as_table }}
 
     </table>
     <input type="submit" value="Save">
-  </form>
+</form>
+
+{% if tune_list %}
+    {% for tune in tune_list %}
+        <p>{{tune.title}}</p>
+    {% endfor %}
+{% endif %}
+
 {% endblock %}

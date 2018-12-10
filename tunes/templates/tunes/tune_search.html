@@ -1,13 +1,28 @@
 {% extends 'base_generic.html' %}
 
 {% block content %}
-<h1>Location search</h1>
-<p> Search for tunes:</p>
+<h1> Search for tunes</h1>
+
   <form method="GET">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Search</button>
   </form>
+
+{% if tune_list %}
+    <p>Choose a tune to play and link to a geographical area.</p>
+    <table>
+    {% for tune in tune_list %}
+    <tr>
+       <td>{{ tune.artist }}</td>
+        <td><a href="{{tune.get_absolute_url }}"  target="_blank"> {{tune.title }}</a></td>
+        <td>{{tune.album}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p> No music was found for your search. </p>
+{% endif %}
 
 
 {% endblock %}

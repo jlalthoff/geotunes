@@ -8,7 +8,6 @@
     {% for playlist in playlist_list %}
     <li>
         <a href="{{playlist.get_absolute_url }}"> {{playlist.name }} </a> created on {{ playlist.date_created }}
-        <a href="{% url 'playlist_update' playlist.pk %}" >update</a>
         <a href="{% url 'playlist_delete' playlist.pk %}" >delete</a>
     </li>
     {% endfor %}

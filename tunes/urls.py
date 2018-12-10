@@ -1,4 +1,5 @@
 from django.urls import path
+
 from tunes import views
 
 urlpatterns = [
@@ -7,41 +8,33 @@ urlpatterns = [
 
     path('playlists/', views.PlaylistListView.as_view(),              name='playlists'),
     path('playlist/<int:pk>', views.PlaylistDetail.as_view(),         name='playlist_detail'),
-    path('playlist/create/', views.PlaylistCreate.as_view(),          name='playlist_create'),
-    path('playlist/<int:pk>/update/', views.PlaylistUpdate.as_view(), name='playlist_update'),
+
+    path('playlist/create/',  views.create_playlist,                  name='playlist_create'),
     path('playlist/<int:pk>/delete/', views.PlaylistDelete.as_view(), name='playlist_delete'),
-    path('playlist/<int:pk>/play/',  views.PlaylistPlay.as_view(),    name='playlist_play'),
+    path('playlist/<int:pk>/play/', views.PlaylistPlay.as_view(),     name='playlist_play'),
 
-    path('register/', views.register,                               name='register'),
-    path('user/<int:pk>/update/',   views.UserUpdate.as_view(),     name='update_user'),
-    path('password/', views.change_password,                        name='change_password'),
-#TODO: add ability to upload music,  currently only "registered library" music can be played.
-    path('tune/create/', views.TuneCreate.as_view(),                name='tune_create'),
-    path('tune/<int:pk>/delete/', views.TuneDelete.as_view(),       name='tune_delete'),
+    path('register/', views.register,                                 name='register'),
+    path('user/<int:pk>/update/', views.UserUpdate.as_view(),         name='update_user'),
+    path('geouser/<int:pk>/update/', views.GeoUserUpdate.as_view(),   name='geouser_update'),
+    path('password/', views.change_password,                          name='change_password'),
+    # TODO: add ability to upload music,  currently only "registered library" music can be played.
+    path('tune/create/', views.TuneCreate.as_view(),                  name='tune_create'),
+    path('tune/<int:pk>/delete/', views.TuneDelete.as_view(),         name='tune_delete'),
+    path('tunes/search/', views.TuneListView.as_view(),               name='tune_search'),
+    path('song/<int:pk>', views.song,                                 name='tune_detail'),
+    path('tunes/link/', views.LinkCreate.as_view(),                   name='tune_link'),
 
-
-    path('tunes/search/', views.TuneListView.as_view(),             name='tune_search'),
-    path('tunes/', views.TuneListView.as_view(),                    name='tune_list'),
-
-
-    path('song/<int:pk>', views.song,                               name='tune_detail'),
-    path('tunes/link/', views.LinkCreate.as_view(),                 name='tune_link'),
     path('usertunelocation/<int:pk>/delete/', views.UserTuneLocationDelete.as_view(), name='link_delete'),
 
-    path('locations/search/', views.GeoLocationList.as_view(),      name='location_search'),
-    path('locations/', views.GeoLocationList.as_view(),             name='location_list'),
-
-    path('mylocations/', views.MyGeoLocationList.as_view(), name='my_location_list'),
+    path('locations/search/', views.GeoLocationList.as_view(),        name='location_search'),
+    path('mylocations/', views.MyGeoLocationList.as_view(),           name='my_location_list'),
     path('location/<int:pk>/update', views.GeoLocationUpdate.as_view(), name='geolocation_update'),
-    path('location/create/', views.GeoLocationCreate.as_view(),     name='geolocation_create'),
-
-    path('geouser/<int:pk>/update/', views.GeoUserUpdate.as_view(),  name='geouser_update'),
-    path('libraries/',  views.LibraryList.as_view(),                 name='libraries'),
-    path('library/create/', views.LibCreate.as_view(),               name='library_create'),
-    path('library/<int:pk>', views.LibraryDetail.as_view(),          name='library_detail'),
-    path('libplaylist/<int:pk>', views.libplaylistload,              name='load_playlist'),
+    path('location/create/', views.GeoLocationCreate.as_view(),       name='geolocation_create'),
 
 
+    path('libraries/', views.LibraryList.as_view(),                   name='libraries'),
+    path('library/create/', views.LibCreate.as_view(),                name='library_create'),
+    path('library/<int:pk>', views.LibraryDetail.as_view(),           name='library_detail'),
+    path('libplaylist/<int:pk>', views.libplaylistload,               name='load_playlist'),
 
 ]
-

@@ -1,0 +1,27 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<h1> Search for tunes to add to a playlist</h1>
+
+  <form method="GET">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+<p>Choose the tunes to add to the playlist:</p>
+{% if tune_list %}
+
+    <form  method="POST">
+        {% csrf_token %}
+        <label for="id_name">Playlist name:</label>
+        <input type="text" name="name" maxlength="100" required id="id_name">
+        <input type="submit" value="Submit">
+        {% for tune in tune_list %}
+        <p><input type="checkbox" name="tune" value="{{tune.pk}}" >{{tune}}</p>
+        {% endfor %}
+
+    </form>
+{% endif %}
+
+
+{% endblock %}

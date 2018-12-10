@@ -87,7 +87,7 @@ class Playlist(models.Model):
 
     class Meta:
         unique_together = ('owner', 'name')
-        ordering = ['date_created', 'name']
+        ordering = ['name']
 
 
 # --------------------------------------------------------------------------------

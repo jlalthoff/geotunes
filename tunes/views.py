@@ -5,6 +5,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.db import transaction
+from django.db.utils import IntegrityError
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import DetailView, ListView
@@ -56,7 +57,7 @@ class GeoLocationList(LoginRequiredMixin, ListView):
                     state_search = form.cleaned_data.get('state')
                     if state_search:
                         locations = locations.filter(state=form.cleaned_data.get('state'))
-                return render(request, 'tunes/geolocation_list.html', {'location_list': locations})
+                return render(request, 'tunes/geolocation_search.html', {'location_list': locations, 'form': form})
         else:
             form = GeoLocationForm()
         return render(request, 'tunes/geolocation_search.html', {'form': form})
@@ -77,7 +78,7 @@ class MyGeoLocationList(LoginRequiredMixin, ListView):
                     state_search = form.cleaned_data.get('state')
                     if state_search:
                         locations = locations.filter(state=form.cleaned_data.get('state'))
-                return render(request, 'tunes/geolocation_list.html', {'location_list': locations})
+                return render(request, 'tunes/geolocation_search.html', {'location_list': locations, 'form': form})
         else:
             form = GeoLocationForm()
         return render(request, 'tunes/geolocation_search.html', {'form': form})
@@ -121,6 +122,7 @@ def song(request, pk):
     geolocation_list = []
     u = get_object_or_404(User, pk=request.user.pk)
     playlists = Playlist.objects.filter(owner=u)
+    is_m4p = thesong.tune_url.endswith('.m4p')
     button = 'Search'
     if request.method == 'POST':
         searchparam = request.POST['query']
@@ -131,8 +133,9 @@ def song(request, pk):
             addlocations(request.POST.getlist('geoloc'), thesong)
     context = {'song': thesong, 'locations': geolocation_list,
                'button_title': button, 'playlist_list': playlists,
+               'is_m4p': is_m4p
                }
-    return render(request, 'tunes/song_detail.html', context=context)
+    return render(request, 'tunes/tune_detail.html', context=context)
 
 
 def addlocations(loclist, thesong):
@@ -185,27 +188,14 @@ class PlaylistListView(LoginRequiredMixin, ListView):
 
 class PlaylistDetail(LoginRequiredMixin, DetailView):
     model = Playlist
+    paginate_by = 25
 
+
+# TODO:  songs of the playlist are not paginating
 
 class PlaylistPlay(LoginRequiredMixin, DetailView):
     model = Playlist
     template_name = 'tunes/playlist_play.html'
-
-
-class PlaylistCreate(LoginRequiredMixin, CreateView):
-    model = Playlist
-    fields = ['name', 'tunes']
-
-    def form_valid(self, form):
-        u = User.objects.get(pk=self.request.user.pk)
-        form.instance.owner = u
-        return super().form_valid(form)
-
-
-class PlaylistUpdate(LoginRequiredMixin, UpdateView):
-    model = Playlist
-    fields = ['name', 'tunes']
-
 
 class PlaylistDelete(LoginRequiredMixin, DeleteView):
     model = Playlist
@@ -372,18 +362,11 @@ def savesong(song, o, playlist):
 
 # ------------------------------------------------------------
 
-# old, no searching version
-# class TuneListView(LoginRequiredMixin, ListView):
-#     model = Tune
-#     paginate_by = 25
-#
-#     def get_queryset(self):
-#         return Tune.objects.filter(owner=self.request.user.id)
-
 class TuneListView(LoginRequiredMixin, ListView):
     model = Tune
     paginate_by = 25
-#TODO: paginate not working with searched lists of objects
+
+    # TODO: paginate not working with searched lists of objects
     def get(self, request):
         if 'title' in request.GET:
             form = TuneSearchForm(request.GET)
@@ -396,13 +379,54 @@ class TuneListView(LoginRequiredMixin, ListView):
                 if 'title' in request.GET:
                     title_search = form.cleaned_data.get('title')
                     if title_search:
-                        tunes = Tune.objects.filter(title__icontains=title_search)
+                        tunes = tunes.filter(title__icontains=title_search)
                 if 'album' in request.GET:
                     album_search = form.cleaned_data.get('album')
                     if album_search:
                         tunes = tunes.filter(album__icontains=album_search)
 
-                return render(request, 'tunes/tune_list.html', {'tune_list': tunes})
+                return render(request, 'tunes/tune_search.html', {'tune_list': tunes, 'form': form})
         else:
             form = TuneSearchForm()
         return render(request, 'tunes/tune_search.html', {'form': form})
+
+
+# ----------------------------------------------------------------------------------------
+@login_required
+def create_playlist(request):
+    form = TuneSearchForm()
+    if request.method == 'GET':
+        if 'title' in request.GET:
+            form = TuneSearchForm(request.GET)
+            if form.is_valid():
+                tunes = Tune.objects.all()
+                if 'artist' in request.GET:
+                    artist_search = form.cleaned_data.get('artist')
+                    if artist_search:
+                        tunes = tunes.filter(artist__icontains=artist_search)
+                if 'title' in request.GET:
+                    title_search = form.cleaned_data.get('title')
+                    if title_search:
+                        tunes = tunes.filter(title__icontains=title_search)
+                if 'album' in request.GET:
+                    album_search = form.cleaned_data.get('album')
+                    if album_search:
+                        tunes = tunes.filter(album__icontains=album_search)
+                return render(request, 'tunes/playlist_create.html', {'tune_list': tunes, 'form': form})
+    if request.method == 'POST':
+        name = request.POST['name']
+        tune_list = request.POST.getlist('tune')
+        u = get_object_or_404(User, pk=request.user.pk)
+        try:
+            pl = Playlist()
+            pl.name = name
+            pl.owner = u
+            pl.save()
+        except IntegrityError:
+            # playlist already exists. just add the tunes to the playlist.
+            pl = get_object_or_404(Playlist, name= name)
+        for t in tune_list:
+            onetune = get_object_or_404(Tune, pk=t)
+            pl.tunes.add(onetune)
+        return redirect(pl.get_absolute_url(), {'form': form} )
+    return render(request, 'tunes/playlist_create.html', {'form': form})

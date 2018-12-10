@@ -4,15 +4,16 @@
 
 <h1> Now Playing:</h1>
 <h4><p> {{ song.title }} </p>
-    <!--<audio controls>-->
-        <!--<source src="{{song.tune_url}}" type="audio/mpeg">-->
-        <!--Sorry, your (old?) browser does not support playing audio :-)-->
-    <!--</audio>-->
+
+    {% if is_m4p %}
+    <p>Sorry, browsers cannot play Apple .m4p files</p>
+    {% else %}
 
     <audio controls>
         <source src="{{song.tune_content.url}}" type="audio/mpeg">
         Sorry, your (old?) browser does not support playing audio :-)
     </audio>
+    {% endif %}
 
     <p> By {{ song.artist }} </p>
 
@@ -50,25 +51,6 @@
     {% endif %}
 </form>
 <hr>
-<!--<p>Assigned to these playlists:-->
-    <!--{% if song.playlist_set.all %}-->
-        <!--{% for p in song.playlist_set.all %}-->
-        <!--<p>{{p.name}}</p>-->
-        <!--{% endfor %}-->
-    <!--{% else %}-->
-        <!--None.-->
-    <!--{% endif %}-->
 
-<!--<p>Add to other playlists:-->
-
-<!--<form action="" method="POST">-->
-    <!--{% csrf_token %}-->
-    <!--<input type="submit" value="Add">-->
-    <!--{% if playlist_list%}-->
-        <!--{% for p in playlist_list %}-->
-            <!--<p><input type="checkbox" name="plist" value="{{ p.id }}"> {{ p }}</p>-->
-        <!--{% endfor %}-->
-    <!--{% endif %}-->
-<!--</form>-->
 
 {% endblock %}
