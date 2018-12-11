@@ -10,9 +10,14 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.http import HttpResponseRedirect
+
+from urllib.parse import urljoin
+from urllib.request import pathname2url
+
 
 from .Library import Library
-from .forms import TuneSearchForm
+from .forms import TuneSearchForm, TuneUploadForm
 from .forms import UserForm, UserLocationForm, GeoLocationForm, GeoUserForm
 from .models import MusicLibrary, MusicLibraryPlaylist
 from .models import Playlist, Tune, GeoUser, UserTuneLocation, GeoLocation
@@ -29,17 +34,27 @@ def index(request):
 
 class TuneCreate(LoginRequiredMixin, CreateView):
     model = Tune
-    fields = ['tune_content', 'title', 'artist']
+    form_class = TuneUploadForm
+    template_name = 'tunes/tune_form.html'
 
     def form_valid(self, form):
         form.instance.owner = self.request.user
-        return super().form_valid(form)
+        status = super().form_valid(form)
+        return status
 
+    def post(self, request, *args, **kwargs):
+        try:
+            super().post(request, *args, **kwargs)
+        except IntegrityError:
+            messages.add_message(request, messages.ERROR,
+                                 'This Tune already exists.')
+        return render(request, template_name=self.template_name,
+                          context= self.get_context_data())
 
 class TuneDelete(LoginRequiredMixin, DeleteView):
     model = Tune
     fields = ['title', 'artist', 'usertunelocations']
-    success_url = reverse_lazy('tunes')
+    success_url = reverse_lazy('tune_search')
 
 
 # ------------------------------------------------------------
@@ -122,7 +137,7 @@ def song(request, pk):
     geolocation_list = []
     u = get_object_or_404(User, pk=request.user.pk)
     playlists = Playlist.objects.filter(owner=u)
-    is_m4p = thesong.tune_url.endswith('.m4p')
+    is_m4p = str(thesong.tune_content).endswith('.m4p')
     button = 'Search'
     if request.method == 'POST':
         searchparam = request.POST['query']
@@ -344,7 +359,7 @@ def libplaylistload(request, pk):
 
 def savesong(song, o, playlist):
     try:
-        t = Tune.objects.get(tune_url=song.location_escaped)
+        t = Tune.objects.get(tune_content=song.location)
     except Tune.DoesNotExist:
         t = Tune()
         t.owner = o
@@ -354,7 +369,6 @@ def savesong(song, o, playlist):
         if song.album:
             t.album = song.album
         t.tune_content = song.location
-        t.tune_url = song.location_escaped
         t.save()
     playlist.tunes.add(t)
     playlist.save()

@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.gis.forms import OSMWidget, MultiPolygonField, ModelForm, CharField, TypedChoiceField, \
     PointField
+from django.forms import FileField
 
 from .models import GeoLocation, GeoUser, MusicLibrary, Playlist
 from .models import State, Tune
@@ -85,5 +86,15 @@ class TuneSearchForm(ModelForm):
 
     class Meta:
         model = Tune
-        fields = ['artist','title', 'album']
+        fields = ['artist', 'title', 'album']
 
+
+class TuneUploadForm(ModelForm):
+    tune_content = FileField(required=True)
+    artist = CharField(required=False)
+    title = CharField(required=False)
+    album = CharField(required=False)
+
+    class Meta:
+        model = Tune
+        fields = ['tune_content', 'artist', 'title', 'album']

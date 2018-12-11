@@ -17,7 +17,7 @@ urlpatterns = [
     path('user/<int:pk>/update/', views.UserUpdate.as_view(),         name='update_user'),
     path('geouser/<int:pk>/update/', views.GeoUserUpdate.as_view(),   name='geouser_update'),
     path('password/', views.change_password,                          name='change_password'),
-    # TODO: add ability to upload music,  currently only "registered library" music can be played.
+
     path('tune/create/', views.TuneCreate.as_view(),                  name='tune_create'),
     path('tune/<int:pk>/delete/', views.TuneDelete.as_view(),         name='tune_delete'),
     path('tunes/search/', views.TuneListView.as_view(),               name='tune_search'),

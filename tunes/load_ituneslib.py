@@ -22,7 +22,7 @@ def run(playlist_name):
             t.owner = o
             t.artist = song.artist
             t.title = song.name
-            t.tune_url = song.location_escaped
+            t.tune_content = song.location
             t.save()
             print('Saved')
         except:

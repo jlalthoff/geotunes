@@ -42,7 +42,7 @@ LIBRARY_TYPES = (
 
 class MusicLibrary(models.Model):
     name = models.CharField(max_length=30, unique=True)
-    #TODO: add an owner attribute FK from user
+    # TODO: add an owner attribute FK from user
     type = models.CharField(max_length=12, choices=LIBRARY_TYPES, default='iTunes')
     filepath = models.FileField(max_length=1000, upload_to='Users/jerryalthoff/uploads/%Y/%m/%d', unique=True)
 
@@ -97,8 +97,7 @@ class Tune(models.Model):
     artist = models.CharField(max_length=100, default='unknown')
     title = models.CharField(max_length=200)
     album = models.CharField(max_length=200, default='None')
-    tune_content = models.FileField(max_length=1000, upload_to='uploads/%Y/%m/%d')
-    tune_url = models.URLField(max_length=1000, unique=True)
+    tune_content = models.FileField(max_length=1000, upload_to='Users/jerryalthoff/uploads/%Y/%m/%d', unique=True)
 
     def __str__(self):
         return self.title + ' By ' + self.artist
@@ -108,6 +107,7 @@ class Tune(models.Model):
         return reverse('tune_detail', args=[str(self.id)])
 
     class Meta:
+        unique_together = ('artist', 'title', 'album')
         ordering = ['artist', 'title']
 
 
