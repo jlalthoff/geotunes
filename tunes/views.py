@@ -401,6 +401,14 @@ class TuneListView(LoginRequiredMixin, FilteredListView):
     paginate_by = 25
     filterset_class = TuneFilter
 
+    def get(self, request):
+        # dont display query set until a query form is filled in.
+        if 'title' not in request.GET:
+            filterset = TuneFilter(request.GET)
+            return render(request, 'tunes/tune_search.html', {'filterset': filterset})
+        else:
+            return super().get(request)
+
 
 # ----------------------------------------------------------------------------------------
 @login_required
