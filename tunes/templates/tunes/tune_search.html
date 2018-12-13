@@ -9,10 +9,10 @@
     <button type="submit">Search</button>
   </form>
 
-{% if tune_list %}
+{% if object_list %}
     <p>Choose a tune to play and link to a geographical area.</p>
     <table>
-    {% for tune in tune_list %}
+    {% for tune in object_list %}
     <tr>
        <td>{{ tune.artist }}</td>
         <td><a href="{{tune.get_absolute_url }}"  target="_blank"> {{tune.title }}</a></td>

@@ -24,7 +24,7 @@
 
 
 <ol>
-    {% for song in playlist.tunes.all %}
+    {% for song in object_list %}
     <li><a href="{% url 'tune_detail' song.pk %} " target="_blank"> {{ song.title }}</a> by {{song.artist }}</li>
     {% endfor %}
 </ol>

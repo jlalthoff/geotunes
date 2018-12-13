@@ -42,7 +42,7 @@ LIBRARY_TYPES = (
 
 class MusicLibrary(models.Model):
     name = models.CharField(max_length=30, unique=True)
-    # TODO: add an owner attribute FK from user
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     type = models.CharField(max_length=12, choices=LIBRARY_TYPES, default='iTunes')
     filepath = models.FileField(max_length=1000, upload_to='Users/jerryalthoff/uploads/%Y/%m/%d', unique=True)
 

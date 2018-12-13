@@ -10,10 +10,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.http import HttpResponseRedirect
-
-from urllib.parse import urljoin
-from urllib.request import pathname2url
+from django.views.generic.list  import MultipleObjectMixin
 
 
 from .Library import Library
@@ -201,12 +198,15 @@ class PlaylistListView(LoginRequiredMixin, ListView):
         return Playlist.objects.filter(owner=self.request.user.id)
 
 
-class PlaylistDetail(LoginRequiredMixin, DetailView):
+class PlaylistDetail(LoginRequiredMixin, DetailView, MultipleObjectMixin):
     model = Playlist
     paginate_by = 25
 
-
-# TODO:  songs of the playlist are not paginating
+    def get_context_data(self, **kwargs):
+        playlist = self.get_object()
+        object_list = playlist.tunes.all()
+        context = super(PlaylistDetail, self).get_context_data(object_list=object_list, **kwargs)
+        return context
 
 class PlaylistPlay(LoginRequiredMixin, DetailView):
     model = Playlist
@@ -292,7 +292,9 @@ class LibCreate(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         # add a MusicLibraryPlaylist for each playlist found in the MusicLibrary.
-        # form.instance = addLibraryPlaylists(form.instance)
+        key = self.request.user.pk
+        u = get_object_or_404(User, pk=key)
+        form.instance.owner = u
         form.instance.save()
         lib = Library(form.instance.filepath)
         for plname in lib.getPlaylistNames():
@@ -399,7 +401,7 @@ class TuneListView(LoginRequiredMixin, ListView):
                     if album_search:
                         tunes = tunes.filter(album__icontains=album_search)
 
-                return render(request, 'tunes/tune_search.html', {'tune_list': tunes, 'form': form})
+                return render(request, 'tunes/tune_search.html', {'object_list': tunes, 'form': form})
         else:
             form = TuneSearchForm()
         return render(request, 'tunes/tune_search.html', {'form': form})
