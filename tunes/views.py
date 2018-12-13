@@ -4,16 +4,17 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db import transaction
 from django.db.utils import IntegrityError
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic.list  import MultipleObjectMixin
-
+from django.views.generic.list import MultipleObjectMixin
 
 from .Library import Library
+from .filters import TuneFilter
 from .forms import TuneSearchForm, TuneUploadForm
 from .forms import UserForm, UserLocationForm, GeoLocationForm, GeoUserForm
 from .models import MusicLibrary, MusicLibraryPlaylist
@@ -46,7 +47,8 @@ class TuneCreate(LoginRequiredMixin, CreateView):
             messages.add_message(request, messages.ERROR,
                                  'This Tune already exists.')
         return render(request, template_name=self.template_name,
-                          context= self.get_context_data())
+                      context=self.get_context_data())
+
 
 class TuneDelete(LoginRequiredMixin, DeleteView):
     model = Tune
@@ -208,9 +210,11 @@ class PlaylistDetail(LoginRequiredMixin, DetailView, MultipleObjectMixin):
         context = super(PlaylistDetail, self).get_context_data(object_list=object_list, **kwargs)
         return context
 
+
 class PlaylistPlay(LoginRequiredMixin, DetailView):
     model = Playlist
     template_name = 'tunes/playlist_play.html'
+
 
 class PlaylistDelete(LoginRequiredMixin, DeleteView):
     model = Playlist
@@ -377,34 +381,25 @@ def savesong(song, o, playlist):
 
 
 # ------------------------------------------------------------
+class FilteredListView(ListView):
+    filterset_class = None
 
-class TuneListView(LoginRequiredMixin, ListView):
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        self.filterset = self.filterset_class(self.request.GET, queryset=queryset)
+        return self.filterset.qs.distinct()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filterset'] = self.filterset
+        return context
+
+
+class TuneListView(LoginRequiredMixin, FilteredListView):
     model = Tune
+    template_name = 'tunes/tune_search.html'
     paginate_by = 25
-
-    # TODO: paginate not working with searched lists of objects
-    def get(self, request):
-        if 'title' in request.GET:
-            form = TuneSearchForm(request.GET)
-            if form.is_valid():
-                tunes = Tune.objects.all()
-                if 'artist' in request.GET:
-                    artist_search = form.cleaned_data.get('artist')
-                    if artist_search:
-                        tunes = tunes.filter(artist__icontains=artist_search)
-                if 'title' in request.GET:
-                    title_search = form.cleaned_data.get('title')
-                    if title_search:
-                        tunes = tunes.filter(title__icontains=title_search)
-                if 'album' in request.GET:
-                    album_search = form.cleaned_data.get('album')
-                    if album_search:
-                        tunes = tunes.filter(album__icontains=album_search)
-
-                return render(request, 'tunes/tune_search.html', {'object_list': tunes, 'form': form})
-        else:
-            form = TuneSearchForm()
-        return render(request, 'tunes/tune_search.html', {'form': form})
+    filterset_class = TuneFilter
 
 
 # ----------------------------------------------------------------------------------------
@@ -440,9 +435,9 @@ def create_playlist(request):
             pl.save()
         except IntegrityError:
             # playlist already exists. just add the tunes to the playlist.
-            pl = get_object_or_404(Playlist, name= name)
+            pl = get_object_or_404(Playlist, name=name)
         for t in tune_list:
             onetune = get_object_or_404(Tune, pk=t)
             pl.tunes.add(onetune)
-        return redirect(pl.get_absolute_url(), {'form': form} )
+        return redirect(pl.get_absolute_url(), {'form': form})
     return render(request, 'tunes/playlist_create.html', {'form': form})

@@ -3,14 +3,13 @@
 {% block content %}
 <h1> Search for tunes</h1>
 
-  <form method="GET">
-    {% csrf_token %}
-    {{ form.as_p }}
+    <p>Choose a tune to play and link to a geographical area.</p>
+  <form method="get">
+    {{ filterset.form.as_p }}
     <button type="submit">Search</button>
   </form>
 
-{% if object_list %}
-    <p>Choose a tune to play and link to a geographical area.</p>
+
     <table>
     {% for tune in object_list %}
     <tr>
@@ -20,9 +19,6 @@
     </tr>
     {% endfor %}
     </table>
-{% else %}
-    <p> No music was found for your search. </p>
-{% endif %}
 
 
 {% endblock %}
