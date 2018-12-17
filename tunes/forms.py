@@ -3,10 +3,44 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.gis.forms import OSMWidget, MultiPolygonField, ModelForm, CharField, TypedChoiceField, \
     PointField
-from django.forms import FileField
+from django.forms import FileField, FilePathField, Form
 
 from .models import GeoLocation, GeoUser, MusicLibrary, Playlist
 from .models import State, Tune
+
+
+#  sample form with vaildation:
+#  from django.core.exceptions import ValidationError
+#  from django.utils.translation import ugettext_lazy as _
+#
+# class RenewBookForm(forms.Form):
+#     renewal_date = forms.DateField(help_text="Enter a date between now and 4 weeks (default 3).")
+#
+#     def clean_renewal_date(self):
+#         data = self.cleaned_data['renewal_date']
+#
+#         # Check if a date is not in the past.
+#         if data < datetime.date.today():
+#             raise ValidationError(_('Invalid date - renewal in past'))
+#
+#         # Check if a date is in the allowed range (+4 weeks from today).
+#         if data > datetime.date.today() + datetime.timedelta(weeks=4):
+#             raise ValidationError(_('Invalid date - renewal more than 4 weeks ahead'))
+#
+#         # Remember to always return the cleaned data.
+#         return data
+
+
+class RegisterMusicForm(Form):
+    name = forms.CharField()
+    directory = FilePathField(path='/', required=False,
+                              widget=forms.ClearableFileInput(attrs=
+                                                               {'multiple': True}),
+                              )
+
+    # class Meta:
+    #     model = Playlist
+    #     fields = ['name', 'directory']
 
 
 class UserForm(UserCreationForm):
@@ -51,7 +85,6 @@ class UserLocationForm(ModelForm):
         fields = ['geom', 'name', 'state']
 
 
-
 # used for the "Set My Location" menu choice
 class GeoUserForm(ModelForm):
     default_center_point = PointField(label='Click a point for your location',
@@ -89,12 +122,16 @@ class TuneSearchForm(ModelForm):
         fields = ['artist', 'title', 'album']
 
 
-class TuneUploadForm(ModelForm):
-    tune_content = FileField(required=True)
-    artist = CharField(required=False)
-    title = CharField(required=False)
-    album = CharField(required=False)
+# class TuneUploadForm(ModelForm):
+#     tune_content = FileField(required=True)
+#     playlist = CharField(required=True)
+#
+#     class Meta:
+#         model = Tune
+#         fields = ['tune_content']
 
-    class Meta:
-        model = Tune
-        fields = ['tune_content', 'artist', 'title', 'album']
+class TuneUploadForm(Form):
+    tune_content = FileField(required=True, help_text='Choose one or more. Only new songs will be saved',
+                             widget=forms.ClearableFileInput(attrs=
+                                                               {'multiple': True}))
+    playlist = CharField(required=True, help_text='select a new or existing playlist')

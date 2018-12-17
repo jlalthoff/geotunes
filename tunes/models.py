@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.contrib.gis.db import models
 from django.contrib.gis.geos import Point
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, pre_delete
 from django.dispatch import receiver
 from django.urls import reverse  # Used to generate URLs by reversing the URL patterns
 
@@ -41,6 +41,7 @@ LIBRARY_TYPES = (
 
 
 class MusicLibrary(models.Model):
+#TODO add UI to delete MusicLibray
     name = models.CharField(max_length=30, unique=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     type = models.CharField(max_length=12, choices=LIBRARY_TYPES, default='iTunes')
@@ -56,6 +57,12 @@ class MusicLibrary(models.Model):
     class Meta:
         ordering = ['name']
 
+@receiver(pre_delete, sender=MusicLibrary)
+def musiclibrary_delete(sender, instance, **kwargs):
+    # Pass false so FileField does not save the model
+    #only delete if the tune_content in not the empty string (not null column)
+    if instance.filepath:
+        instance.filepath.delete(False)
 
 # --------------------------------------------------------------------------------
 class MusicLibraryPlaylist(models.Model):
@@ -110,7 +117,13 @@ class Tune(models.Model):
         unique_together = ('artist', 'title', 'album')
         ordering = ['artist', 'title']
 
-
+@receiver(pre_delete, sender=Tune)
+def tune_delete(sender, instance, **kwargs):
+    # Pass false so FileField does not save the model
+    # only delete those that were uploaded into media (under Users) directory
+    #only delete if the tune_content in not the empty string (not null column)
+    if instance.tune_content and str(instance.tune_content).startswith('Users'):
+        instance.tune_content.delete(False)
 # --------------------------------------------------------------------------------
 
 

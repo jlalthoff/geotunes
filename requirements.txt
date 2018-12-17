@@ -18,6 +18,7 @@ python-decouple==3.1
 pytz==2018.5
 six==1.11.0
 stevedore==1.29.0
+tinytag==1.0.0
 vine==1.1.4
 virtualenv==16.0.0
 virtualenv-clone==0.3.0

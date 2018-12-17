@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+
+
+{% block content %}
+
+<h1>Register Music</h1>
+
+<p> Register one directory of MP3 files as a new Playlist.</p>
+
+  <form method="POST"  enctype="multipart/form-data" >
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register</button>
+  </form>
+
+
+{% endblock %}

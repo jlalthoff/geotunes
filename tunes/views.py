@@ -4,14 +4,15 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db import transaction
 from django.db.utils import IntegrityError
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import DetailView, ListView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.views.generic.list import MultipleObjectMixin
+from tinytag import TinyTag, TinyTagException
 
 from .Library import Library
 from .filters import TuneFilter
@@ -19,6 +20,41 @@ from .forms import TuneSearchForm, TuneUploadForm
 from .forms import UserForm, UserLocationForm, GeoLocationForm, GeoUserForm
 from .models import MusicLibrary, MusicLibraryPlaylist
 from .models import Playlist, Tune, GeoUser, UserTuneLocation, GeoLocation
+
+
+#
+# @login_required
+# def renew_book_librarian(request, pk):
+#     book_instance = get_object_or_404(BookInstance, pk=pk)
+#
+#     # If this is a POST request then process the Form data
+#     if request.method == 'POST':
+#
+#         # Create a form instance and populate it with data from the request (binding):
+#         form = RenewBookForm(request.POST)
+#
+#         # Check if the form is valid:
+#         if form.is_valid():
+#             # process the data in form.cleaned_data as required (here we just write it to the model due_back field)
+#             book_instance.due_back = form.cleaned_data['renewal_date']
+#             book_instance.save()
+#
+#             # redirect to a new URL:
+#             return HttpResponseRedirect(reverse('all-borrowed') )
+# alternatively
+#             return redirect('board_topics', pk=board.pk)
+#
+#     # If this is a GET (or any other method) create the default form.
+#     else:
+#         proposed_renewal_date = datetime.date.today() + datetime.timedelta(weeks=3)
+#         form = RenewBookForm(initial={'renewal_date': proposed_renewal_date})
+#
+#     context = {
+#         'form': form,
+#         'book_instance': book_instance,
+#     }
+#
+#     return render(request, 'catalog/book_renew_librarian.html', context)
 
 
 # ------------------------------------------------------------
@@ -30,24 +66,62 @@ def index(request):
 
 # ------------------------------------------------------------
 
-class TuneCreate(LoginRequiredMixin, CreateView):
-    model = Tune
+class TuneCreate(LoginRequiredMixin, FormView):
     form_class = TuneUploadForm
     template_name = 'tunes/tune_form.html'
-
-    def form_valid(self, form):
-        form.instance.owner = self.request.user
-        status = super().form_valid(form)
-        return status
+    success_url = reverse_lazy('tune_create')
 
     def post(self, request, *args, **kwargs):
-        try:
-            super().post(request, *args, **kwargs)
-        except IntegrityError:
-            messages.add_message(request, messages.ERROR,
-                                 'This Tune already exists.')
-        return render(request, template_name=self.template_name,
-                      context=self.get_context_data())
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        files = request.FILES.getlist('tune_content')
+        if form.is_valid():
+            name = form.cleaned_data['playlist']
+            user = get_object_or_404(User, pk=request.user.pk)
+            playlist = Playlist()
+            playlist.name = name
+            playlist.owner = user
+            try:
+                playlist.save()
+            except IntegrityError:
+                # already exists, go and get the original one
+                playlist = get_object_or_404(Playlist, name=name, owner=user)
+            for f in files:
+                add_to_playlist(playlist, f)
+            return HttpResponseRedirect(playlist.get_absolute_url())
+        else:
+            return self.form_invalid(form)
+
+
+def add_to_playlist(playlist, file):
+    t = Tune()
+    t.tune_content = file
+    t.artist = 'temp999'
+    t.album = 'temp999'
+    t.title = 'temp999'
+    t.owner = playlist.owner
+    # must save at this point to get the absolute path so we can scan for meta tags
+    t.save()
+    try:
+        tag = TinyTag.get(t.tune_content.path)
+        t.artist = tag.artist
+        t.title = tag.title
+        t.album = tag.album
+    except TinyTagException:
+        # TODO: add this as error to messages.
+        t.delete()
+        return
+    try:
+        t.save()
+    except IntegrityError:
+        # fails because title/artist/album already in db.
+        # TODO add this as warning to messages.
+        t.delete()
+        return
+    # add to the playlist
+    playlist.tunes.add(t)
+    playlist.save()
+    return
 
 
 class TuneDelete(LoginRequiredMixin, DeleteView):
