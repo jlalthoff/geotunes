@@ -19,6 +19,8 @@ urlpatterns = [
     path('password/', views.change_password,                          name='change_password'),
 
     path('tune/create/', views.TuneCreate.as_view(),                  name='tune_create'),
+    path('tune/<int:pk>/getLyrics/', views.get_lyrics,                name='get_lyrics'),
+    path('missing_lyrics/', views.get_missing_lyrics,                  name='missing_lyrics'),
     path('tune/<int:pk>/delete/', views.TuneDelete.as_view(),         name='tune_delete'),
     path('tunes/search/', views.TuneListView.as_view(),               name='tune_search'),
     path('song/<int:pk>', views.song,                                 name='tune_detail'),

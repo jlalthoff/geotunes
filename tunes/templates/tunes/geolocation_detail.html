@@ -18,17 +18,15 @@
   </form>
 
 
-<p>Associated with these songs:
-{% if tune_list %}
-<ul>
-    {% for x in tune_list %}
-<li>{{x}}
-    <a href="{% url 'tune_detail'  x.pk %}" > Play </a> </li>
-    {% endfor %}
-{% else %}
-   <p>None.</p>
-</ul>
-{% endif %}
+<p>Associated with these locations:
+    {% if geolocation.usertunelocation_set.all %}
+        {% for x in geolocation.usertunelocation_set.all %}
+        <p>{{x.tune}}
+            <a href="{% url 'link_delete'  x.pk %}"> remove </a></p>
+        {% endfor %}
+    {% else %}
+        None.
+    {% endif %}
 <hr>
 
 {% endblock content %}

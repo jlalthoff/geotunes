@@ -30,6 +30,8 @@ from .models import State, Tune
 #         # Remember to always return the cleaned data.
 #         return data
 
+class LyricsSearchForm(Form):
+    number = forms.IntegerField(min_value=0)
 
 class RegisterMusicForm(Form):
     name = forms.CharField()

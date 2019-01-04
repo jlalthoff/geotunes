@@ -1,0 +1,28 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+
+
+<h1> Search for Missing Lyrics</h1>
+
+  <form action=""   method="post"  >
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <input type="submit" value="SEARCH">
+  </form>
+
+{% if tune_list %}
+<table>
+    {% for tune in tune_list %}
+    <tr>
+        <td><a href="{{tune.get_absolute_url }}"  target="_blank"> {{tune}}</a></td>
+        <td> {{ tune.lyrics_status }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+{% endblock content %}

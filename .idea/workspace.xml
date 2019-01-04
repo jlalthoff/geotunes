@@ -5,13 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f49e2487-cf67-4316-a144-a0c0c5f7bc11" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tunes/templates/tunes/tune_register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tunes/getLyrics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tunes/templates/tunes/tune_missing_lyrics.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GEO/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/GEO/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tunes/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tunes/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunes/templates/tunes/tune_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/tunes/tune_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/templates/base_generic.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/base_generic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/templates/tunes/geolocation_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/tunes/geolocation_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/templates/tunes/playlist_play.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/tunes/playlist_play.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/templates/tunes/tune_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/templates/tunes/tune_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tunes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tunes/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,7 +27,7 @@
     <session id="-1745036681">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
@@ -34,8 +37,8 @@
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.39" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -48,10 +51,10 @@
           <entry key="env" value="2" />
           <entry key="gitignore" value="1" />
           <entry key="htm" value="1" />
-          <entry key="html" value="296" />
+          <entry key="html" value="306" />
           <entry key="md" value="1" />
           <entry key="po" value="1" />
-          <entry key="py" value="252" />
+          <entry key="py" value="265" />
           <entry key="sql" value="1" />
           <entry key="txt" value="7" />
         </counts>
@@ -59,30 +62,30 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="4" />
-          <entry key="HTML" value="297" />
+          <entry key="HTML" value="307" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="16" />
-          <entry key="Python" value="252" />
+          <entry key="Python" value="265" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="660" />
+          <entry key="Python Console" value="850" />
           <entry key="css" value="5" />
           <entry key="dummy" value="22" />
           <entry key="env" value="55" />
-          <entry key="html" value="12960" />
-          <entry key="py" value="54685" />
+          <entry key="html" value="13496" />
+          <entry key="py" value="59469" />
           <entry key="txt" value="318" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="5" />
-          <entry key="HTML" value="12960" />
+          <entry key="HTML" value="13496" />
           <entry key="PLAIN_TEXT" value="395" />
-          <entry key="Python" value="55345" />
+          <entry key="Python" value="60319" />
         </counts>
       </usages-collector>
     </session>
@@ -90,47 +93,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tunes/templates/base_generic.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="50" column="94" lean-forward="true" selection-start-line="50" selection-start-column="94" selection-end-line="50" selection-end-column="94" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tunes/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="112" column="75" lean-forward="true" selection-start-line="112" selection-start-column="75" selection-end-line="112" selection-end-column="75" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-                <marker date="1545061882534" expanded="true" signature="1068:1106" ph="..." />
-                <marker date="1545061882534" expanded="true" signature="1368:2689" ph="..." />
-                <marker date="1545061882534" expanded="true" signature="4297:4302" ph="..." />
-                <marker date="1545061882534" expanded="true" signature="4297:4634" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tunes/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="130" column="35" lean-forward="true" selection-start-line="130" selection-start-column="35" selection-end-line="130" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tunes/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="24" column="88" selection-start-line="24" selection-start-column="88" selection-end-line="24" selection-end-column="88" />
+            <state relative-caret-position="340">
+              <caret line="24" column="23" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="23" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -138,42 +104,101 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tunes/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="114" column="16" lean-forward="true" selection-start-line="113" selection-start-column="8" selection-end-line="114" selection-end-column="16" />
+            <state relative-caret-position="23">
+              <caret line="72" column="45" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
               <folding>
-                <element signature="e#0#35#0" expanded="true" />
-                <marker date="1545073709516" expanded="true" signature="2639:4419" ph="..." />
+                <element signature="e#0#15#0" expanded="true" />
+                <marker date="1546635599067" expanded="true" signature="4554:6695" ph="..." />
+                <marker date="1546635599067" expanded="true" signature="5111:6695" ph="..." />
+                <marker date="1546635599067" expanded="true" signature="6348:6695" ph="..." />
+                <marker date="1546635599067" expanded="true" signature="6449:6695" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/tune_missing_lyrics.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="73" selection-start-line="20" selection-start-column="73" selection-end-line="20" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/tune_search.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="91" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="91" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/user_form.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="17" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/geolocation_detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tunes/templates/base_generic.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="367">
+              <caret line="54" column="56" selection-start-line="54" selection-start-column="42" selection-end-line="54" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/tune_detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="39" selection-start-line="39" selection-end-line="47" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tunes/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="173">
+              <caret line="32" column="6" lean-forward="true" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+                <marker date="1546635599070" expanded="true" signature="1290:1337" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/requirements.txt">
+        <entry file="file://$PROJECT_DIR$/tunes/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GEO/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="15" column="66" selection-start-line="15" selection-start-column="66" selection-end-line="15" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/tune_form.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+            <state relative-caret-position="292">
+              <caret line="95" column="43" lean-forward="true" selection-start-line="95" selection-start-column="43" selection-end-line="95" selection-end-column="43" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+                <marker date="1546632950590" expanded="true" signature="1068:1106" ph="..." />
+                <marker date="1546632950590" expanded="true" signature="1368:2689" ph="..." />
+                <marker date="1546632950590" expanded="true" signature="4576:4581" ph="..." />
+                <marker date="1546632950590" expanded="true" signature="4576:4913" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -190,11 +215,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ordering</find>
-      <find>Integrity</find>
-      <find>DoesNotExist</find>
-      <find>foreign</find>
-      <find>get_absolut</find>
       <find>tune_det</find>
       <find>absolute</find>
       <find>playlist</find>
@@ -220,6 +240,11 @@
       <find>FILE_UPLOA</find>
       <find>reverse</find>
       <find>get_absolute</find>
+      <find>kentuc</find>
+      <find>split</find>
+      <find>get_object_or</find>
+      <find>except</find>
+      <find>get_object_or_404</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -228,12 +253,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/tunes/templates/tunes/geolocation_detail2.html" />
-        <option value="$PROJECT_DIR$/GEO/.gitignore" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/tunes/templates/tunes/geouser_form.html" />
         <option value="$PROJECT_DIR$/tunes/templates/tunes/geolocation_list.html" />
-        <option value="$PROJECT_DIR$/tunes/templates/tunes/geolocation_detail.html" />
         <option value="$PROJECT_DIR$/tunes/Song.py" />
         <option value="$PROJECT_DIR$/tunes/migrations/0008_auto_20181113_1552.py" />
         <option value="$PROJECT_DIR$/tunes/migrations/0009_auto_20181113_1653.py" />
@@ -259,7 +280,6 @@
         <option value="$PROJECT_DIR$/tunes/migrations/0003_auto_20181207_1435.py" />
         <option value="$PROJECT_DIR$/tunes/templates/tunes/tune_list.html" />
         <option value="$PROJECT_DIR$/tunes/templates/tunes/geolocation_search.html" />
-        <option value="$PROJECT_DIR$/tunes/templates/tunes/tune_detail.html" />
         <option value="$PROJECT_DIR$/tunes/templates/tunes/playlist_form.html" />
         <option value="$PROJECT_DIR$/tunes/templates/tunes/playlist_create.html" />
         <option value="$PROJECT_DIR$/tunes/templates/tunes/playlist_list.html" />
@@ -272,21 +292,26 @@
         <option value="$PROJECT_DIR$/tunes/templates/tunes/tune_search.html" />
         <option value="$PROJECT_DIR$/tunes/templates/tunes/tune_register.html" />
         <option value="$PROJECT_DIR$/GEO/settings.py" />
-        <option value="$PROJECT_DIR$/tunes/models.py" />
-        <option value="$PROJECT_DIR$/tunes/forms.py" />
         <option value="$PROJECT_DIR$/tunes/templates/tunes/tune_form.html" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/tunes/templates/tunes/playlist_play.html" />
+        <option value="$PROJECT_DIR$/tunes/templates/tunes/tune_detail.html" />
+        <option value="$PROJECT_DIR$/tunes/getLyrics.py" />
+        <option value="$PROJECT_DIR$/tunes/templates/tunes/geolocation_detail.html" />
         <option value="$PROJECT_DIR$/tunes/templates/base_generic.html" />
         <option value="$PROJECT_DIR$/tunes/urls.py" />
+        <option value="$PROJECT_DIR$/tunes/models.py" />
+        <option value="$PROJECT_DIR$/tunes/forms.py" />
         <option value="$PROJECT_DIR$/tunes/views.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/tunes/templates/tunes/tune_missing_lyrics.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="86" />
+    <option name="x" value="70" />
     <option name="y" value="23" />
-    <option name="width" value="1411" />
-    <option name="height" value="1013" />
+    <option name="width" value="1341" />
+    <option name="height" value="991" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -337,7 +362,20 @@
               <item name="GEO" type="b2602c69:ProjectViewProjectNode" />
               <item name="GEO" type="462c0819:PsiDirectoryNode" />
               <item name="tunes" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GEO" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GEO" type="462c0819:PsiDirectoryNode" />
+              <item name="tunes" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GEO" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GEO" type="462c0819:PsiDirectoryNode" />
+              <item name="tunes" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="tunes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -377,7 +415,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.load_ituneslib">
+  <component name="RunManager" selected="Python.getLyrics">
     <configuration name="download_geo_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="GEO" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -393,6 +431,27 @@
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tunes/download_geo_data.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="getLyrics" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="GEO" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tunes" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tunes/getLyrics.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -423,9 +482,11 @@
     <list>
       <item itemvalue="Python.download_geo_data" />
       <item itemvalue="Python.load_ituneslib" />
+      <item itemvalue="Python.getLyrics" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.getLyrics" />
         <item itemvalue="Python.load_ituneslib" />
         <item itemvalue="Python.download_geo_data" />
       </list>
@@ -525,19 +586,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="86" y="23" width="1411" height="1013" extended-state="0" />
+    <frame x="163" y="51" width="1341" height="991" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49841774" visible="true" weight="0.23453237" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49841774" visible="true" weight="0.24621212" />
       <window_info id="Structure" order="2" sideWeight="0.50158226" side_tool="true" weight="0.4312455" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.4971223" visible="true" weight="0.3452116" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5028777" side_tool="true" weight="0.3452116" />
-      <window_info anchor="bottom" id="Python Console" order="2" sideWeight="0.49784172" weight="0.32850778" />
+      <window_info anchor="bottom" id="Python Console" order="0" sideWeight="0.49784172" weight="0.32762557" />
+      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.4971223" visible="true" weight="0.34703195" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5028777" side_tool="true" weight="0.3452116" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32850778" />
       <window_info anchor="bottom" id="Version Control" order="5" sideWeight="0.49928057" weight="0.32739422" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.32908705" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.32305935" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -607,41 +668,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tunes/load_ituneslib.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="14" selection-start-line="14" selection-end-line="14" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/Song.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="64" column="19" lean-forward="true" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/migrations/0019_auto_20181205_1026.py" />
-    <entry file="file://$PROJECT_DIR$/tunes/migrations/0018_auto_20181205_1020.py" />
-    <entry file="file://$PROJECT_DIR$/tunes/migrations/0017_auto_20181205_1018.py" />
-    <entry file="file://$PROJECT_DIR$/tunes/migrations/0016_auto_20181123_1454.py" />
-    <entry file="file://$PROJECT_DIR$/tunes/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="24" column="42" lean-forward="true" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/migrations/0001_initial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="9" column="38" lean-forward="true" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/migrations/0004_remove_usertunelocation_user.py" />
-    <entry file="file://$PROJECT_DIR$/tunes/migrations/0005_usertunelocation_user.py" />
-    <entry file="file://$PROJECT_DIR$/tunes/migrations/0003_auto_20181207_1435.py" />
     <entry file="file://$PROJECT_DIR$/tunes/migrations/0002_state.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -707,27 +733,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tunes/templates/django.htm" />
-    <entry file="file://$PROJECT_DIR$/tunes/django_coding_style.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/playlist_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="112" selection-start-line="9" selection-start-column="112" selection-end-line="9" selection-end-column="112" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/playlist_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/geo/lib/python3.7/site-packages/django_filters/filterset.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -765,13 +770,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/tune_search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/playlist_create.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -796,48 +794,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/tune_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="12" column="64" lean-forward="true" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/tune_register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEO/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="15" column="66" selection-start-line="15" selection-start-column="66" selection-end-line="15" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="112" column="75" lean-forward="true" selection-start-line="112" selection-start-column="75" selection-end-line="112" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-            <marker date="1545061882534" expanded="true" signature="1068:1106" ph="..." />
-            <marker date="1545061882534" expanded="true" signature="1368:2689" ph="..." />
-            <marker date="1545061882534" expanded="true" signature="4297:4302" ph="..." />
-            <marker date="1545061882534" expanded="true" signature="4297:4634" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="130" column="35" lean-forward="true" selection-start-line="130" selection-start-column="35" selection-end-line="130" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -848,23 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/templates/base_generic.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="50" column="94" lean-forward="true" selection-start-line="50" selection-start-column="94" selection-end-line="50" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunes/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" column="88" selection-start-line="24" selection-start-column="88" selection-end-line="24" selection-end-column="88" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -872,14 +815,166 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/templates/audiotracks/player.js" />
+    <entry file="file://$PROJECT_DIR$/tunes/django_coding_style.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/playlist_play.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="14" lean-forward="true" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/playlist_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="9" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="13" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/playlist_confirm_delete.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/playlist_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/Playlist.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/Song.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GEO/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="66" selection-start-line="15" selection-start-column="66" selection-end-line="15" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/load_ituneslib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/getLyrics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#1#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/tune_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="39" selection-start-line="39" selection-end-line="47" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/geolocation_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/templates/base_generic.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="54" column="56" selection-start-line="54" selection-start-column="42" selection-end-line="54" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="95" column="43" lean-forward="true" selection-start-line="95" selection-start-column="43" selection-end-line="95" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+            <marker date="1546632950590" expanded="true" signature="1068:1106" ph="..." />
+            <marker date="1546632950590" expanded="true" signature="1368:2689" ph="..." />
+            <marker date="1546632950590" expanded="true" signature="4576:4581" ph="..." />
+            <marker date="1546632950590" expanded="true" signature="4576:4913" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="32" column="6" lean-forward="true" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+            <marker date="1546635599070" expanded="true" signature="1290:1337" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/user_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="17" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tunes/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="114" column="16" lean-forward="true" selection-start-line="113" selection-start-column="8" selection-end-line="114" selection-end-column="16" />
+        <state relative-caret-position="23">
+          <caret line="72" column="45" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1545073709516" expanded="true" signature="2639:4419" ph="..." />
+            <element signature="e#0#15#0" expanded="true" />
+            <marker date="1546635599067" expanded="true" signature="4554:6695" ph="..." />
+            <marker date="1546635599067" expanded="true" signature="5111:6695" ph="..." />
+            <marker date="1546635599067" expanded="true" signature="6348:6695" ph="..." />
+            <marker date="1546635599067" expanded="true" signature="6449:6695" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/tune_search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="91" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunes/templates/tunes/tune_missing_lyrics.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="73" selection-start-line="20" selection-start-column="73" selection-end-line="20" selection-end-column="73" />
         </state>
       </provider>
     </entry>

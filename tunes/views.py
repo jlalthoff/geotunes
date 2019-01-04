@@ -1,3 +1,5 @@
+import requests
+from bs4 import BeautifulSoup
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
@@ -12,11 +14,14 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.views.generic.list import MultipleObjectMixin
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
 from tinytag import TinyTag, TinyTagException
+import time
 
 from .Library import Library
 from .filters import TuneFilter
-from .forms import TuneSearchForm, TuneUploadForm
+from .forms import TuneSearchForm, TuneUploadForm, LyricsSearchForm
 from .forms import UserForm, UserLocationForm, GeoLocationForm, GeoUserForm
 from .models import MusicLibrary, MusicLibraryPlaylist
 from .models import Playlist, Tune, GeoUser, UserTuneLocation, GeoLocation
@@ -55,6 +60,133 @@ from .models import Playlist, Tune, GeoUser, UserTuneLocation, GeoLocation
 #     }
 #
 #     return render(request, 'catalog/book_renew_librarian.html', context)
+
+#
+
+@login_required
+def get_missing_lyrics(request):
+    user = get_object_or_404(User, pk=request.user.pk)
+    list_tunes = set()
+    form = LyricsSearchForm()
+    # If this is a POST request then process the Form data
+    if request.method == 'POST':
+        form = LyricsSearchForm(request.POST)
+        if form.is_valid():
+            search_count = form.cleaned_data['number']
+            list_tunes = Tune.objects.filter(lyrics_status__exact='TO SEARCH')[:search_count]
+            for tune in list_tunes:
+                time.sleep(15)
+                song_lyrics = scrape_lyrics(tune)
+                if song_lyrics:
+                    tune.lyrics = song_lyrics
+                    song_words = get_words(song_lyrics)
+                    word_pairs = get_word_pairs(song_lyrics)
+                    link_locations(tune, user, song_words)
+                    link_locations(tune, user, word_pairs)
+                    tune.lyrics_status = 'FOUND'
+                    tune.save()
+                else:
+                    tune.lyrics_status = 'NOT FOUND'
+                    tune.save()
+    # GET or invalid form
+    context ={
+        'form': form,
+        'tune_list': list_tunes
+    }
+    return render(request, 'tunes/tune_missing_lyrics.html', context)
+
+
+@login_required
+def get_lyrics(request, pk):
+    tune = get_object_or_404(Tune, pk=pk)
+    user = get_object_or_404(User, pk=tune.owner.id)
+    # If this is a POST request then process the Form data
+    if request.method == 'POST':
+        song_lyrics = scrape_lyrics(tune)
+        if song_lyrics:
+            tune.lyrics = song_lyrics
+            song_words = get_words(song_lyrics)
+            word_pairs = get_word_pairs(song_lyrics)
+            link_locations(tune, user, song_words)
+            link_locations(tune, user, word_pairs)
+            tune.save()
+    return redirect('tune_detail', pk=pk)
+
+
+def scrape_lyrics(song):
+    artist = search_words(song.artist)
+    title = search_words(song.title)
+    # remove any words with ' in them or the song won't be found
+    url = f'http://www.mldb.org/search-bf?mqa={artist}&mqt={title}&mql=&mqy=&ob=1&mm=0'
+    page = requests.get(url)
+    soup = BeautifulSoup(page.text, 'html.parser')
+    web_song = soup.find(class_='h')
+    if not web_song:
+        return None
+    links = web_song.find_all('a')
+    song_link = links[1].get('href')
+    song_url = f'http://www.mldb.org/{song_link}'
+    lyrics_page = requests.get(song_url)
+    soup = BeautifulSoup(lyrics_page.text, 'html.parser')
+    lyrics = soup.find(class_='songtext').text
+    return lyrics
+
+
+def get_words(lyrics):
+    lyrics_words = set(word_tokenize(lyrics))
+    mystops = set(stopwords.words('english'))
+    good_lyrics_words = []
+    for w in lyrics_words:
+        if w.lower() not in mystops:
+            good_lyrics_words.append(w)
+    return good_lyrics_words
+
+
+def get_word_pairs(lyrics):
+    lyrics_words = word_tokenize(lyrics)
+    mystops = set(stopwords.words('english'))
+    good_lyrics_words = []
+    for w in lyrics_words:
+        if w.lower() not in mystops:
+            good_lyrics_words.append(w)
+    word_pairs = set()
+    i = 0
+    while i < len(good_lyrics_words) - 1:
+        word_pairs.add(good_lyrics_words[i] + ' ' + good_lyrics_words[i + 1])
+        i += 1
+    return word_pairs
+
+
+def link_locations(tune, user, words):
+    matches = 0
+    for word in words:
+        if len(word) > 3:
+            locs = GeoLocation.objects.filter(name__iexact=word)
+            for loc in locs:
+                matches += 1
+                # link loc to the tune with current user
+                link = UserTuneLocation()
+                link.location = loc
+                link.user = user
+                link.tune = tune
+                try:
+                    link.save()
+                except IntegrityError:
+                    pass
+    return matches
+
+
+def search_words(string):
+    # take out words with ' that make searches go bad
+    words = string.split()
+    search_words = ""
+    for word in words:
+        if word.find("'") < 0:
+            search_words = search_words + ' ' + word
+    if search_words == "":
+        return string
+    else:
+        return search_words
 
 
 # ------------------------------------------------------------

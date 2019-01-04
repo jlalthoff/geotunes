@@ -100,10 +100,17 @@ class Playlist(models.Model):
 # --------------------------------------------------------------------------------
 
 class Tune(models.Model):
+    LYRICS_STATUS = (
+        ('FOUND', 'Lyrics Found'),
+        ('NOT FOUND', 'Lyrics Not Found'),
+        ('TO SEARCH', 'No search performed')
+    )
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     artist = models.CharField(max_length=100, default='unknown')
     title = models.CharField(max_length=200)
     album = models.CharField(max_length=200, default='None')
+    lyrics = models.TextField()
+    lyrics_status = models.CharField(max_length=12, choices=LYRICS_STATUS, default='TO SEARCH')
     tune_content = models.FileField(max_length=1000, upload_to='Users/jerryalthoff/uploads/%Y/%m/%d', unique=True)
 
     def __str__(self):

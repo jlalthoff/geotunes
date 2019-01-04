@@ -18,8 +18,17 @@
     <p> By {{ song.artist }} </p>
 
 
-
+{% if song.lyrics %}
+    {{song.lyrics| linebreaks }}
+{% else %}
 </h4>
+<form action="{% url 'get_lyrics' song.pk %}" method="POST">
+    {% csrf_token %}
+    <p>Update with Lyrics from the Internet
+    <input type="submit" value="GET">
+    </p>
+</form>
+{% endif %}
 
 <form action="{% url 'tune_delete' song.pk %}" method="GET">
     {% csrf_token %}
